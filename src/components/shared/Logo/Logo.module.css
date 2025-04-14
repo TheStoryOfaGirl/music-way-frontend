@@ -1,0 +1,15 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
+}
+
+.container svg {
+  width: max(48px, 3vw);
+  height: max(48px, 3vw);
+}
+
+.text_logo {
+  color: var(--blue-light-400);
+}

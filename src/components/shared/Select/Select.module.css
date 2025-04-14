@@ -1,0 +1,96 @@
+.container svg {
+  width: max(24px, 1.67vw);
+  height: max(24px, 1.67vw);
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.container {
+  width: max(240px, 16.7vw);
+  position: relative;
+}
+
+.select {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 8px;
+  padding: 8px max(12px, 0.83vw);
+  background-color: var(--sky-light-100);
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+.icons {
+  display: flex;
+}
+
+.selected_options {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding-right: 4px;
+  color: var(--black);
+}
+
+.selected_options .placeholder {
+  color: var(--gray-dark-800);
+}
+
+.chevron_icon {
+  flex-shrink: 0;
+  filter: invert(52%) sepia(31%) saturate(1118%) hue-rotate(146deg)
+    brightness(93%) contrast(91%);
+}
+
+.chevron_icon path {
+  stroke-width: 3px;
+}
+
+.chevron_icon_up {
+  transform: rotate(180deg);
+}
+
+.options_container {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  border-radius: 8px;
+  background-color: var(--white);
+  box-shadow: 0px 4px 8px -1px rgba(0, 0, 0, 0.25);
+}
+
+.options {
+  padding: 4px;
+  overflow: auto;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  /* max-height: 120px;  */
+}
+
+.option {
+  padding: max(6px, 0.31vw) max(12px, 0.625vw);
+  cursor: pointer;
+  transition: all 0.2s ease-in;
+  display: flex;
+  gap: 8px;
+}
+
+.option p {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: var(--black);
+}
+
+.option:hover {
+  background-color: var(--sky-light-200);
+  border-radius: 8px;
+}

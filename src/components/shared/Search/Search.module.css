@@ -1,0 +1,49 @@
+.container {
+  width: 100%;
+  vertical-align: middle;
+  white-space: nowrap;
+  position: relative;
+}
+
+.input_search {
+  width: 100%;
+  padding: max(8px, 0.42vw) max(12px, 0.625vw);
+  padding-left: 50px;
+  border-radius: 8px;
+  border: none;
+  box-shadow: inset 0 0 0 1px var(--gray-base-500);
+  float: left;
+}
+
+.icon_seacrh {
+  position: absolute;
+  top: 25%;
+  left: 16px;
+  width: clamp(20px, 1.25vw, 28px);
+  height: clamp(20px, 1.25vw, 28px);
+  filter: invert(30%) sepia(0%) saturate(57%) hue-rotate(180deg)
+    brightness(103%) contrast(76%);
+}
+
+.input_search:hover {
+  box-shadow: inset 0 0 0 1px var(--sky-base-500);
+}
+
+.input_search:focus {
+  border: none;
+  outline: none;
+  box-shadow: inset 0 0 0 2px var(--sky-base-500);
+}
+
+[type="search"]::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  appearance: none;
+  width: clamp(24px, 1.25vw, 40px);
+  height: clamp(24px, 1.25vw, 40px);
+  background-image: url("@assets/icons/X.svg");
+  background-repeat: no-repeat;
+  background-size: clamp(24px, 1.25vw, 40px) clamp(24px, 1.25vw, 40px);
+  filter: invert(30%) sepia(0%) saturate(57%) hue-rotate(180deg)
+    brightness(103%) contrast(76%);
+  cursor: pointer;
+}

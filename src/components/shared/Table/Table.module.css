@@ -1,0 +1,72 @@
+.table {
+  overflow-x: auto;
+  width: 100%;
+}
+
+.table::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+.table::-webkit-scrollbar-track {
+  background: var(--gray-light-100);
+  border-radius: 5px;
+}
+
+.table::-webkit-scrollbar-thumb {
+  background: var(--gray-light-300);
+  border-radius: 5px;
+  border: 2px solid var(--gray-light-100);
+}
+
+.table::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.header_primary,
+.header_secondary,
+.row {
+  display: grid;
+  min-width: fit-content;
+}
+
+.header_primary {
+  background-color: var(--blue-base-500);
+  border-radius: 8px;
+  color: var(--white);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.header_secondary {
+  color: var(--blue-base-500);
+  border-top: 2px solid var(--blue-base-500);
+  border-bottom: 2px solid var(--blue-base-500);
+}
+
+.col {
+  padding: max(8px, 0.83vw);
+  align-self: center;
+}
+
+.tooltip .col_content {
+  position: relative;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.tooltip:hover::after {
+  content: attr(data-fulltext);
+  font-size: 14px;
+  position: absolute;
+  margin-top: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: var(--blue-base-500);
+  z-index: 100;
+  padding: 4px;
+  border-radius: 8px;
+  background-color: var(--white);
+  white-space: normal;
+  width: auto;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}

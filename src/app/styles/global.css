@@ -1,0 +1,95 @@
+:root {
+  --blue-base-500: #676ff7;
+  --blue-light-100: #eeeeff;
+  --blue-light-200: #cfd1f8;
+  --blue-light-300: #b2b6f7;
+  --blue-light-400: #858cf9;
+  --blue-dark-600: #3e48fb;
+  --blue-dark-700: #0a15c8;
+  --blue-dark-800: #070e85;
+  --blue-dark-900: #030743;
+  --purple-base-500: #8d10c3;
+  --purple-light-100: #f5deff;
+  --purple-light-200: #df97ff;
+  --purple-light-300: #cc67f7;
+  --purple-light-400: #c359f1;
+  --purple-dark-600: #710d9c;
+  --purple-dark-700: #550a75;
+  --purple-dark-800: #38064e;
+  --purple-dark-900: #1c0327;
+  --sky-base-500: #7dd5ed;
+  --sky-light-100: #e5f7fb;
+  --sky-light-200: #cbeef8;
+  --sky-light-300: #b1e6f4;
+  --sky-light-400: #97ddf1;
+  --sky-dark-600: #3dc0e4;
+  --sky-dark-700: #1a9cbf;
+  --sky-dark-800: #12687f;
+  --sky-dark-900: #093440;
+  --red-base-500: #f04438;
+  --red-light-100: #fbcac6;
+  --red-light-200: #f79d97;
+  --red-light-300: #f47167;
+  --red-light-400: #f04438;
+  --red-dark-600: #e41f11;
+  --red-dark-700: #b4180e;
+  --red-dark-800: #85120a;
+  --red-dark-900: #560c06;
+  --green-base-500: #12b76a;
+  --green-light-100: #d5ffeb;
+  --green-light-200: #9ff6cd;
+  --green-light-300: #71f1b5;
+  --green-light-400: #43ec9d;
+  --green-dark-600: #12b76a;
+  --green-dark-700: #0d894f;
+  --green-dark-800: #095a34;
+  --green-dark-900: #042c19;
+  --gray-base-500: #787878;
+  --gray-light-100: #e7e5e5;
+  --gray-light-200: #d1d1d1;
+  --gray-light-300: #b3b3b3;
+  --gray-light-400: #969696;
+  --gray-dark-600: #5b5b5b;
+  --gray-dark-700: #3d3d3d;
+  --gray-dark-800: #313131;
+  --white: #ffffff;
+  --white-100: #fafafa;
+  --white-200: #f4f4f4;
+  --black: #000000;
+  --black-700: #252525;
+  --black-800: #181818;
+  --black-900: #0c0c0c;
+}
+
+@font-face {
+  font-family: "Nunito";
+  src: url("./../../assets/fonts/Nunito-Bold.ttf") format("truetype"); /* Safari, Android, iOS */
+  font-style: normal;
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "Nunito";
+  src: url("./../../assets/fonts/Nunito-Regular.ttf") format("truetype"); /* Safari, Android, iOS */
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Nunito";
+  src: url("./../../assets/fonts/Nunito-Medium.ttf") format("truetype"); /* Safari, Android, iOS */
+  font-style: normal;
+  font-weight: 500;
+}
+
+body {
+  font-family: "Nunito";
+  font-size: 1rem;
+  color: var(--gray-dark-800);
+}
+
+.modalOpen {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+}

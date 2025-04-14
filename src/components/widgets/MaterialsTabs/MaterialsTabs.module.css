@@ -1,0 +1,7 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  border-radius: 10px;
+  outline: 2px solid var(--blue-base-500);
+  width: max-content;
+}

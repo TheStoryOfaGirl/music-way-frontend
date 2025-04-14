@@ -1,0 +1,23 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-block: max(16px, 1.25vw);
+  padding-left: 16px;
+  padding-right: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.container:hover {
+  background-color: var(--blue-light-100);
+}
+
+.icon {
+  filter: invert(42%) sepia(37%) saturate(3833%) hue-rotate(220deg)
+    brightness(100%) contrast(95%);
+}
+
+.icon path {
+  stroke-width: 2px;
+}

@@ -1,0 +1,9 @@
+.container_horizontal {
+  width: 100%;
+  height: 600px;
+}
+
+.container_vertical {
+  width: 50%;
+  height: 480px;
+}

@@ -1,0 +1,105 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: max(40px, 2.5vw);
+  height: max(40px, 2.5vw);
+  cursor: pointer;
+}
+
+.container {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 200ms;
+}
+
+.blue {
+  background-color: var(--blue-light-100);
+  color: var(--blue-base-500);
+  box-shadow: 0px 5px 7.3px 0px rgba(103, 111, 247, 0.4);
+}
+
+.blue.text:hover {
+  background-color: var(--blue-light-200);
+}
+
+.blue.text:active,
+.blue.text.active_icon {
+  background-color: var(--blue-base-500);
+  color: var(--white);
+}
+
+.blue.text.active_icon {
+  cursor: auto;
+}
+
+.blue.text::before {
+  content: attr(data-number);
+}
+
+.blue.icon svg {
+  filter: invert(64%) sepia(90%) saturate(4915%) hue-rotate(217deg)
+    brightness(96%) contrast(102%);
+}
+
+.blue.icon svg path,
+.sky.icon svg path {
+  stroke-width: 3px;
+}
+
+.blue.icon:hover svg,
+.blue.icon:active svg {
+  filter: invert(9%) sepia(72%) saturate(7391%) hue-rotate(244deg)
+    brightness(101%) contrast(119%);
+}
+
+.purple.icon {
+  border: solid 2px var(--purple-base-500);
+}
+
+.purple.icon svg {
+  filter: invert(13%) sepia(49%) saturate(5494%) hue-rotate(276deg)
+    brightness(123%) contrast(112%);
+}
+
+.purple.icon:hover {
+  background-color: var(--purple-base-500);
+}
+
+.purple.icon:hover svg {
+  filter: invert(93%) sepia(7%) saturate(0%) hue-rotate(97deg) brightness(108%)
+    contrast(106%);
+}
+
+.purple.icon:active {
+  background-color: var(--purple-dark-600);
+}
+
+.sky {
+  background-color: var(--sky-light-100);
+  color: var(--sky-dark-600);
+  box-shadow: 0px 5px 7.3px 0px rgba(61, 192, 228, 0.4);
+}
+
+.sky.icon svg {
+  filter: invert(75%) sepia(69%) saturate(1196%) hue-rotate(160deg)
+    brightness(86%) contrast(109%);
+}
+
+.sky.icon:hover svg,
+.sky.icon:active svg {
+  filter: invert(52%) sepia(91%) saturate(2628%) hue-rotate(158deg)
+    brightness(92%) contrast(80%);
+}
+
+.circle {
+  border-radius: calc(infinity * 1px);
+}
+
+.square {
+  border-radius: 8px;
+}
+
+.container.no_shadow {
+  box-shadow: none;
+}

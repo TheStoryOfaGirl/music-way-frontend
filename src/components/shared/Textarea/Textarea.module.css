@@ -1,0 +1,52 @@
+.container {
+  width: 100%;
+}
+
+.textarea {
+  width: 100%;
+  padding: max(8px, 0.42vw) max(12px, 0.625vw);
+  border-radius: 8px;
+  border: none;
+  box-shadow: inset 0 0 0 1px var(--gray-base-500);
+  transition: all 0.1s ease-out;
+  resize: none;
+}
+
+.textarea:hover {
+  box-shadow: inset 0 0 0 1px var(--sky-dark-600);
+}
+
+.textarea:focus {
+  border: none;
+  outline: none;
+  box-shadow: inset 0 0 0 2px var(--sky-dark-600);
+}
+
+.textarea_error {
+  box-shadow: inset 0 0 0 1px var(--red-base-500);
+}
+
+.error_message {
+  margin-top: 2px;
+  color: var(--red-base-500);
+}
+
+.textarea::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+.textarea::-webkit-scrollbar-track {
+  background: var(--gray-light-100);
+  border-radius: 5px;
+}
+
+.textarea::-webkit-scrollbar-thumb {
+  background: var(--gray-light-300);
+  border-radius: 5px;
+  border: 2px solid var(--gray-light-100);
+}
+
+.textarea::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}

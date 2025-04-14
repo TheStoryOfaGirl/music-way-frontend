@@ -1,0 +1,57 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-block: 16px;
+  padding-inline: max(24px, 1.25vw);
+  border-radius: 8px;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+.container:hover {
+  background-color: var(--blue-light-100);
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  gap: max(24px, 1.67vw);
+}
+
+.mark {
+  color: var(--blue-base-500);
+}
+
+.chevron_icon {
+  filter: invert(42%) sepia(37%) saturate(3833%) hue-rotate(220deg)
+    brightness(100%) contrast(95%);
+}
+
+.chevron_icon path {
+  stroke-width: 2px;
+}
+
+.chevron_icon_up {
+  transform: rotate(180deg);
+}
+
+.task {
+  margin-left: calc(max(24px, 1.25vw) + 32px);
+  display: flex;
+  justify-content: space-between;
+  padding-block: max(16px, 1.25vw);
+  padding-inline: max(24px, 1.25vw);
+  border-bottom: 1px solid var(--blue-base-500);
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+.task:last-child {
+  border-bottom: none;
+}

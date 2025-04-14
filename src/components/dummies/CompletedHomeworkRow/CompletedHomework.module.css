@@ -1,0 +1,29 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: max(20px, 1.25vw) max(24px, 1.67vw);
+  color: var(--black);
+  cursor: pointer;
+  border-radius: 8px;
+  box-shadow: 0px 4px 12px 0px rgba(103, 111, 247, 0.25);
+  transition: all 0.1s ease-in-out;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+.container:hover {
+  background-color: var(--blue-light-100);
+}
+
+.mark {
+  color: var(--blue-base-500);
+}
+
+.marks {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}

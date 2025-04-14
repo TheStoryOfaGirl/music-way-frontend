@@ -1,0 +1,32 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: max(8px, 0.83vw);
+}
+
+.input_checkbox {
+  width: max(16px, 1.25vw);
+  height: max(16px, 1.25vw);
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  box-shadow: inset 0 0 0 1px var(--blue-base-500);
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type="checkbox"]:checked {
+  background-image: url("@assets/icons/CheckSquareFill.svg");
+  background-size: max(16px, 1.25vw) max(16px, 1.25vw);
+  filter: invert(48%) sepia(56%) saturate(5046%) hue-rotate(221deg)
+    brightness(100%) contrast(95%);
+}
+
+.label_checkbox {
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}

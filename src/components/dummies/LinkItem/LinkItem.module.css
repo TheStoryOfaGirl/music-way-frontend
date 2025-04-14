@@ -1,0 +1,26 @@
+.link {
+  list-style: none;
+  display: flex;
+  width: max-content;
+}
+
+.link a {
+  padding-block: 4px;
+  padding-right: 8px;
+  text-decoration: underline;
+}
+
+.link a:hover {
+  color: var(--blue-base-500);
+}
+
+.link a:active {
+  color: var(--blue-dark-700);
+}
+
+.link::before {
+  content: "•"; /* или любой символ/эмодзи */
+  align-self: center;
+  font-size: 10px;
+  margin-right: 16px;
+}

@@ -1,0 +1,107 @@
+.text_32_r {
+  font-family: "Nunito";
+  font-size: clamp(1rem, 1.67vw, 2rem);
+  font-weight: 400;
+}
+
+.text_24_r {
+  font-family: "Nunito";
+  font-size: clamp(1rem, 1.25vw, 1.5rem);
+  font-weight: 400;
+}
+
+.text_24_m {
+  font-family: "Nunito";
+  font-size: clamp(1rem, 1.25vw, 1.5rem);
+  font-weight: 500;
+}
+
+.text_24_b {
+  font-family: "Nunito";
+  font-size: clamp(1rem, 1.25vw, 1.5rem);
+  font-weight: 700;
+}
+
+.text_20_r {
+  font-family: "Nunito";
+  font-size: clamp(1rem, 1.15vw, 1.25rem);
+  font-weight: 400;
+}
+
+.text_20_m {
+  font-family: "Nunito";
+  font-size: clamp(1rem, 1.15vw, 1.25rem);
+  font-weight: 500;
+}
+
+.text_20_b {
+  font-family: "Nunito";
+  font-size: clamp(1rem, 1.15vw, 1.25rem);
+  font-weight: 700;
+}
+
+.text_18_r {
+  font-family: "Nunito";
+  font-size: clamp(1rem, 0.938vw, 1.125rem);
+  font-weight: 400;
+}
+
+.text_18_m {
+  font-family: "Nunito";
+  font-size: clamp(1rem, 0.938vw, 1.125rem);
+  font-weight: 500;
+}
+
+.text_18_b {
+  font-family: "Nunito";
+  font-size: clamp(1rem, 0.938vw, 1.125rem);
+  font-weight: 700;
+}
+
+.text_16_r {
+  font-family: "Nunito";
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.text_16_m {
+  font-family: "Nunito";
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.text_16_b {
+  font-family: "Nunito";
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.heading_1 {
+  font-family: "Nunito";
+  font-size: clamp(2rem, 2.5vw, 3rem);
+  font-weight: 700;
+}
+
+.heading_2 {
+  font-family: "Nunito";
+  font-size: clamp(1.5rem, 2.08vw, 2.5rem);
+  font-weight: 700;
+}
+
+.heading_3 {
+  font-family: "Nunito";
+  font-size: clamp(1rem, 1.67vw, 2rem);
+  font-weight: 700;
+}
+
+.heading_4 {
+  font-family: "Nunito";
+  font-size: clamp(1rem, 1.25vw, 1.5rem);
+  font-weight: 700;
+}
+
+.heading_5 {
+  font-family: "Nunito";
+  font-size: 16px;
+  font-weight: 700;
+}
