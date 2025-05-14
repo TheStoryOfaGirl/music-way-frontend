@@ -1,16 +1,34 @@
 import { FormProvider, useForm } from "react-hook-form";
 import styles from "./LoginForm.module.css";
 import { LoginData } from "@models";
-import { Button, Input } from "@components/shared";
-import { classnames } from "@utils";
+import { Button, Input, Modal } from "@components/shared";
+import { classnames, URLS } from "@utils";
 import { useNavigate } from "react-router-dom";
+import { useLogin } from "@api";
+import { useAuthStore } from "@stores";
+import { useEffect, useState } from "react";
+import { ChangePasswordForm } from "../ChangePasswordForm/ChangePasswordForm";
 
 export const LoginForm = () => {
   const navigate = useNavigate();
+  const [showModal, setShowModal] = useState(false);
   const methods = useForm<LoginData>();
-  const onSubmit = (data: LoginData) => console.log(data);
+  const { role, isChangedPassword } = useAuthStore();
+  const { mutate, isPending, data } = useLogin();
+  console.log(isChangedPassword);
+
+  const onSubmit = (data: LoginData) => {
+    mutate(data);
+  };
+
+  useEffect(() => {
+    console.log("use effect", isChangedPassword, role, data?.status === 200);
+    if (data?.status === 200 && !isChangedPassword && role === "Преподаватель") {
+      setShowModal(true);
+    }
+  }, [data]);
   return (
-    <div className={styles.container}>
+    <>
       <div className={styles.content}>
         <h1 className="heading_1">Вход</h1>
         <FormProvider {...methods}>
@@ -19,25 +37,25 @@ export const LoginForm = () => {
             className={styles.form}
           >
             <Input
-              variant="default"
-              name="login"
+              name="username"
               placeholder="Логин"
               rules={{ required: "Поле обязательно для заполнения" }}
               className={styles.input}
             />
             <Input
-              variant="default"
               name="password"
               placeholder="Пароль"
               rules={{ required: "Поле обязательно для заполнения" }}
               className={styles.input}
+              type="password"
             />
             <Button
               className={classnames(styles.btn, "text_20_b")}
               type="submit"
               color="purple"
+              disabled={isPending}
             >
-              Войти
+              {isPending ? "Загрузка..." : "Войти"}
             </Button>
           </form>
         </FormProvider>
@@ -46,11 +64,16 @@ export const LoginForm = () => {
           type="submit"
           color="purple"
           variant="secondary"
-          onClick={() => navigate("/register")}
+          onClick={() => navigate(URLS.AUTH.REGISTER)}
         >
           Зарегистрироваться как ученик
         </Button>
       </div>
-    </div>
+      {role === "Преподаватель" && !isChangedPassword && (
+        <Modal isOpen={showModal}>
+          <ChangePasswordForm />
+        </Modal>
+      )}
+    </>
   );
 };

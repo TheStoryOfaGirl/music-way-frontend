@@ -1,0 +1,11 @@
+.container {
+  padding: max(8px, 0.625vw) max(24px, 1.67vw);
+  border-radius: 24px;
+  border: 3px solid var(--purple-base-500);
+  width: min-content;
+  white-space: nowrap;  
+}
+
+.container p {
+  color: var(--purple-base-500);
+}

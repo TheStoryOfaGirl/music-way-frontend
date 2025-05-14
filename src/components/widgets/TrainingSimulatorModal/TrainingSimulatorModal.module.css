@@ -1,0 +1,29 @@
+.content {
+  width: 480px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.icon {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+
+.heading {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.btn {
+  align-self: flex-end;
+}
+
+.settings {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}

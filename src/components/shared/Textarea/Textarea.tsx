@@ -26,6 +26,11 @@ export const Textarea = ({
 
   return (
     <div className={styles.container}>
+      {error && (
+        <p className={classnames(styles.error_message, "text_16_m")}>
+          {error.message as string}
+        </p>
+      )}
       <textarea
         {...register(name, rules)}
         className={classnames(
@@ -38,11 +43,6 @@ export const Textarea = ({
         rows={4}
         {...props}
       />
-      {error && (
-        <p className={classnames(styles.error_message, "text_16_m")}>
-          {error.message as string}
-        </p>
-      )}
     </div>
   );
 };

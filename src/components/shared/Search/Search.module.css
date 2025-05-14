@@ -1,8 +1,10 @@
 .container {
   width: 100%;
+  height: 48px;
   vertical-align: middle;
   white-space: nowrap;
   position: relative;
+  display: block;
 }
 
 .input_search {
@@ -17,8 +19,9 @@
 
 .icon_seacrh {
   position: absolute;
-  top: 25%;
+  /* top: 50%; */
   left: 16px;
+  transform: translate(0%, 50%);
   width: clamp(20px, 1.25vw, 28px);
   height: clamp(20px, 1.25vw, 28px);
   filter: invert(30%) sepia(0%) saturate(57%) hue-rotate(180deg)

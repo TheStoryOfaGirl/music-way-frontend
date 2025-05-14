@@ -1,0 +1,97 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+  text-align: start;
+  margin-top: max(80px, 9.62vh);
+  padding-bottom: max(80px, 9.62vh);
+}
+
+.heading,
+.max_mark,
+.deadline,
+.deadline_container,
+.task {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 4px;
+}
+
+.deadline_container {
+  gap: 24px;
+}
+
+.heading {
+  gap: 24px;
+  margin-bottom: 16px;
+}
+
+.main_info {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.tasks {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.tasks li::before {
+  content: "•";
+  align-self: center;
+  font-size: 10px;
+  margin-right: 16px;
+}
+
+.task {
+  gap: 0;
+}
+
+.task p:nth-child(2) {
+  margin-left: 4px;
+  color: var(--blue-base-500);
+}
+
+.max_mark p:nth-child(2) {
+  color: var(--blue-base-500);
+}
+
+.related_materials {
+  margin-top: 24px;
+}
+
+.related_materials_list {
+  margin-top: 8px;
+  margin-bottom: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.btn {
+  padding: 12px 24px;
+}
+
+.add_info {
+  display: flex;
+  flex-direction: column;
+  gap:4px;
+}
+
+.tasks_list {
+  display: flex;
+  flex-direction: column;
+  gap:8px;
+}
+
+.theme{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+}
+

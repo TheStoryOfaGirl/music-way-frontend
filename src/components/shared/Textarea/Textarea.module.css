@@ -13,13 +13,13 @@
 }
 
 .textarea:hover {
-  box-shadow: inset 0 0 0 1px var(--sky-dark-600);
+  box-shadow: inset 0 0 0 1px var(--blue-base-500);
 }
 
 .textarea:focus {
   border: none;
   outline: none;
-  box-shadow: inset 0 0 0 2px var(--sky-dark-600);
+  box-shadow: inset 0 0 0 2px var(--blue-base-500);
 }
 
 .textarea_error {

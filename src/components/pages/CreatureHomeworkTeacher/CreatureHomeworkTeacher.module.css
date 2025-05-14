@@ -1,0 +1,86 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+  text-align: start;
+  margin-top: max(80px, 9.62vh);
+  padding-bottom: max(80px, 9.62vh);
+}
+
+.heading {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.edit_icons {
+  display: flex;
+  gap: 16px;
+}
+
+.date_edit {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.date_inputs {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.date_input {
+  cursor: pointer;
+  width: 180px;
+}
+
+.date_input:hover {
+  box-shadow: inset 0 0 0 1px var(--purple-base-500);
+}
+
+.date_input:focus {
+  box-shadow: inset 0 0 0 1px var(--gray-base-500);
+}
+
+.input_heading {
+  width: 480px;
+  margin-bottom: 24px;
+}
+
+.date_calendar {
+  position: relative;
+}
+
+.calendar {
+  position: absolute;
+  z-index: 1000;
+  height: auto;
+}
+
+.max_tasks {
+  margin-top: 8px;
+  margin-bottom: 16px;
+  color: var(--red-base-500);
+}
+
+.btn {
+  margin-top: 40px;
+}
+
+.loader {
+  justify-self: start;
+}
+
+.select {
+  margin-bottom: 16px;
+}
+
+.task_row {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}

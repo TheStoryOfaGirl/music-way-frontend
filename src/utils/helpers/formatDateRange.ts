@@ -1,6 +1,6 @@
 import { months } from "@utils";
 
-export function formatDateRange(startDate: string, endDate?: string) {
+export function formatDateRange(startDate: string, endDate: string) {
   const parseDate = (dateStr: string) => {
     const date = new Date(dateStr);
     if (isNaN(date.getTime())) {
@@ -17,7 +17,7 @@ export function formatDateRange(startDate: string, endDate?: string) {
   };
 
   const start = parseDate(startDate);
-  const end = endDate ? parseDate(endDate) : start;
+  const end = parseDate(endDate);
 
   return `${formatSingleDate(start)} - ${formatSingleDate(end)}`;
 }

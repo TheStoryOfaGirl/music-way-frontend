@@ -1,46 +1,67 @@
-import { classnames, navListStudent, navListTeacher } from "@utils";
+import { classnames, navListStudent, navListTeacher, URLS } from "@utils";
 import styles from "./Header.module.css";
 import { Button, Logo } from "@components/shared";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import ExitIcon from "@assets/icons/BoxArrowRight.svg?react";
+import { useAuthStore } from "@stores";
+import { useCheckAuth, useLogout } from "@api";
 
-interface HeaderProps {
-  variant: "teacher" | "student" | "default";
-}
-
-export const Header = ({ variant }: HeaderProps) => {
+export const Header = () => {
+  const {
+    role,
+    isAuthenticated,
+    name,
+    isChangedPassword,
+  } = useAuthStore();
+  const navigate = useNavigate();
+  const { mutate } = useLogout();
   const navList =
-    variant === "student"
+    role === "Ученик"
       ? navListStudent
-      : variant === "teacher"
+      : role === "Преподаватель"
         ? navListTeacher
         : [];
+  const handleClick = () => {
+    mutate();
+  };
   return (
     <header className={styles.header_container}>
-      <Logo />
-      <nav className={styles.nav}>
-        {navList.map((navItem) => (
-          <Link
-            to={navItem.path}
-            className={classnames(styles.link, "text_24_b")}
-            key={navItem.name}
-          >
-            {navItem.name}
-          </Link>
-        ))}
-      </nav>
-      <div className={styles.btn_name_container}>
-        <p className="text_24_r">Имя</p>
-        <Button
-          className="text_24_b"
-          variant="secondary"
-          color="sky"
-          icon={<ExitIcon className={styles.exitIcon} />}
-          iconPosition="right"
-        >
-          Выйти
-        </Button>
+      <div
+        className={styles.logo}
+        onClick={() => {
+          navigate(URLS.AUTH.LOGIN);
+        }}
+      >
+        <Logo />
       </div>
+      {isAuthenticated && isChangedPassword && (
+        <>
+          <nav className={styles.nav}>
+            {navList.map((navItem) => (
+              <Link
+                to={navItem.path}
+                className={classnames(styles.link, "text_24_b")}
+                key={navItem.name}
+              >
+                {navItem.name}
+              </Link>
+            ))}
+          </nav>
+          <div className={styles.btn_name_container}>
+            <p className="text_24_r">{name}</p>
+            <Button
+              className="text_24_b"
+              variant="secondary"
+              color="sky"
+              icon={<ExitIcon className={styles.exitIcon} />}
+              iconPosition="right"
+              onClick={handleClick}
+            >
+              Выйти
+            </Button>
+          </div>
+        </>
+      )}
     </header>
   );
 };

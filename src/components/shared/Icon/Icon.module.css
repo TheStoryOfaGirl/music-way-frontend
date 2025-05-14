@@ -96,8 +96,11 @@
   border-radius: calc(infinity * 1px);
 }
 
-.square {
+.square.icon {
   border-radius: 8px;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
+  transition-duration: 100ms;
 }
 
 .container.no_shadow {

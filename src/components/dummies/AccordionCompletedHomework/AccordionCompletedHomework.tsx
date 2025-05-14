@@ -2,13 +2,13 @@ import { classnames } from "@utils";
 import styles from "./AccordionCompletedHomework.module.css";
 import ChevronIcon from "@assets/icons/chevron-bottom.svg?react";
 import { useState } from "react";
-import { Task } from "@models";
+import { CompletedHomeworkTask } from "@models";
 
 interface AccordionCompletedHomeworkProps {
   name: string;
   totalMark: number;
   mark: number;
-  tasks: Task[];
+  tasks: CompletedHomeworkTask[];
 }
 
 export const AccordionCompletedHomework = ({
@@ -44,11 +44,11 @@ export const AccordionCompletedHomework = ({
       {isOpen && (
         <>
           {tasks.map((task) => (
-            <div className={styles.task}>
-              <p className="text_24_r">{task.name}</p>
+            <div className={styles.task} key={task.number}>
+              <p className="text_24_r">{`Задание ${task.number}`}</p>
               <p
                 className={classnames(styles.mark, "text_24_b")}
-              >{`${task.mark}/${task.totalMark} баллов`}</p>
+              >{`${task.student_mark}/${task.max_mark} баллов`}</p>
             </div>
           ))}
         </>

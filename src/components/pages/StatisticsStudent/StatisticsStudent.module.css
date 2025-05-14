@@ -1,0 +1,45 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+  text-align: start;
+  margin-top: max(80px, 9.62vh);
+  padding-bottom: max(80px, 9.62vh);
+}
+
+.bar_chart {
+  width: 50%;
+}
+
+.error {
+  margin-top: 16px;
+}
+
+.statisticsByUser {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 16px;
+  margin-bottom: 32px;
+}
+
+.statisticsByUser p:nth-child(2) {
+  margin-inline: 8px;
+  color: var(--purple-base-500);
+}
+
+.chart_info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.bar_chart_container {
+  margin-top: 32px;
+}
+
+/* .bar_chart_container {
+  display: flex;
+  justify-content: center;
+} */

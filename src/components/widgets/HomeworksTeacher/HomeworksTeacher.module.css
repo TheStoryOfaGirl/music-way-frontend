@@ -1,0 +1,43 @@
+.heading {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+}
+
+.heading svg {
+  width: max(32px, 2.5vw);
+  height: max(32px, 2.5vw);
+}
+
+.tabs {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 32px;
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+
+.homework_list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.homework_list p {
+  text-align: start;
+}
+
+.btn {
+  padding: 12px 24px;
+  height: 48px;
+}
+
+.tabs_btn,
+.heading_btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}

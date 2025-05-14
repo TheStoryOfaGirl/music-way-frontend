@@ -6,14 +6,13 @@ import { classnames } from "@utils";
 interface InputProps extends ComponentProps<"input"> {
   name: string;
   placeholder?: string;
-  variant?: "placeholderUp" | "default";
   rules?: RegisterOptions;
   className?: string;
+  readonly?: boolean;
 }
 
 export const Input = ({
   name,
-  variant = "default",
   placeholder,
   rules,
   className,

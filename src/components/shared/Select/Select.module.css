@@ -78,6 +78,7 @@
 .option {
   padding: max(6px, 0.31vw) max(12px, 0.625vw);
   cursor: pointer;
+  border-radius: 8px;
   transition: all 0.2s ease-in;
   display: flex;
   gap: 8px;
@@ -93,4 +94,8 @@
 .option:hover {
   background-color: var(--sky-light-200);
   border-radius: 8px;
+}
+
+.disabled {
+  cursor: auto;
 }

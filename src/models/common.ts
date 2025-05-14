@@ -1,7 +1,7 @@
 export type ValuePiece = Date | null;
 
 export interface SelectOption {
-  value: string | number;
+  value: string;
   label: string;
 }
 
@@ -11,4 +11,8 @@ export interface TableColumn {
   width: string;
   align?: "left" | "center" | "right";
   tooltip?: boolean;
+}
+
+export interface ErrorResponse {
+  detail: string;
 }

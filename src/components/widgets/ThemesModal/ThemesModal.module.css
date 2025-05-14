@@ -1,0 +1,25 @@
+.content {
+  width: 640px;
+}
+
+.heading {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.icon {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+
+.theme_list {
+  margin-top: 16px;
+}

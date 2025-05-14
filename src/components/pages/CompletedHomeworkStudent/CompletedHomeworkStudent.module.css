@@ -1,0 +1,28 @@
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 16px;
+  text-align: start;
+  margin-top: max(80px, 9.62vh);
+  padding-bottom: max(80px, 9.62vh);
+}
+
+.heading {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.scores {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 24px;
+}
+
+.scores p:nth-child(2) {
+  color: var(--green-base-500);
+}

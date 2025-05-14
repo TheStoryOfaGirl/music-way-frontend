@@ -14,27 +14,21 @@
   -ms-user-select: none;
 }
 
-.container_fix {
-  padding: 16px;
-  width: max(240px, 16.67vw);
-  height: max(240px, 16.67vw);
-}
-
-.container_fix:hover {
+.up:hover {
   transition: all 0.1s ease-out;
   transform: translateY(-6px);
 }
 
-.container_fill {
+.outline {
   transition: outline 0.1s ease-in-out;
   outline: 2px solid transparent;
 }
 
-.container_fill:hover {
+.outline:hover {
   outline: 2px solid var(--blue-base-500);
 }
 
 .img {
-  width: max(120px, 8.33vw);
-  height: max(120px, 8.33vw);
+  width: clamp(120px, 8.33vw, 160px);
+  height: clamp(120px, 8.33vw, 160px);
 }

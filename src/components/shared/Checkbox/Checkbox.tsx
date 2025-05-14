@@ -3,11 +3,14 @@ import styles from "./Checkbox.module.css";
 import { classnames } from "@utils";
 
 interface CheckboxProps
-  extends Omit<InputHTMLAttributes<HTMLInputElement>, "type"> {
+ {
+  className?: string;
   label?: string;
   labelClassName?: string;
   containerClassName?: string;
-  onClick?: () => void;
+  checked: boolean;
+  id: string;
+  onChange?: (checked: boolean) => void;
 }
 
 export const Checkbox = ({
@@ -15,20 +18,23 @@ export const Checkbox = ({
   className,
   labelClassName,
   containerClassName,
-  onClick,
+  onChange,
+  checked,
   ...props
 }: CheckboxProps) => {
-  const [isChecked, setIsChecked] = useState(false);
+  // const [isChecked, setIsChecked] = useState(false);
   const handleChange = () => {
-    setIsChecked((prev) => !prev);
-    if (onClick) onClick();
+    if (onChange) {
+      onChange(!checked); 
+    }
+    //if (onClick) onClick();
   };
   return (
     <div className={classnames(styles.container, containerClassName)}>
       <input
         type="checkbox"
         className={classnames(styles.input_checkbox, className)}
-        checked={isChecked}
+        checked={checked}
         onChange={handleChange}
         {...props}
       />

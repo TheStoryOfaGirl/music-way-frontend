@@ -11,7 +11,7 @@ export const ThemeRow = ({ name, number, onClick }: ThemeRowProps) => {
   return (
     <div className={styles.container} onClick={onClick}>
       <p className="text_24_r">{`${number}. ${name}`}</p>
-      <ChevronRight className={styles.icon} width={56} height={48} />
+      <ChevronRight className={styles.icon} width={32} height={32} />
     </div>
   );
 };

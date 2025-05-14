@@ -1,18 +1,39 @@
-.form {
-  width: 50%;
-}
-
-form .icon {
-  width: 40px;
-  height: 40px;
-}
-
-.search {
-  width: 50%;
-}
-
-.layout {
-  max-width: 1200px;
+.container {
+  max-width: 1000px;
   margin: 0 auto;
-  padding: 0 0px;
+  padding: 0 16px;
+  text-align: center;
+  margin-top: max(80px, 9.62vh);
+  padding-bottom: max(80px, 9.62vh);
+}
+
+.heading {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+}
+
+.heading svg {
+  width: max(56px, 3.75vw);
+  height: max(56px, 3.75vw);
+}
+
+.tabs {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 32px;
+  margin-top: 32px;
+  margin-bottom: 24px;
+}
+
+.homework_list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.homework_list p {
+  text-align: start;
 }

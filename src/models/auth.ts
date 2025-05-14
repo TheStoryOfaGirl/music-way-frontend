@@ -1,8 +1,8 @@
-export type UserRole = "student" | "teacher";
+export type UserRole = "Ученик" | "Преподаватель";
 
 export type AuthTokens = {
-  accessToken: string;
-  refreshToken: string;
+  access_token: string;
+  refresh_token: string;
 };
 
 export type User = {
@@ -13,14 +13,19 @@ export type User = {
 };
 
 export type LoginData = {
-  login: string;
+  username: string;
   password: string;
 };
 
-export type RegisterData = LoginData & {
-  firstName: string;
-  lastName: string;
+export type RegisterData = {
+  email: string;
+  password: string;
+  name: string;
+  surname: string;
   patronymic: string;
-  birthDate: string;
-  repeatPassword: string;
+  birthdate: string;
+};
+
+export type ChangePasswordData = {
+  new_password: string;
 };

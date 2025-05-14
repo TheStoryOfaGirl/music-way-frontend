@@ -2,12 +2,12 @@ import { Button } from "@components/shared";
 import Book from "@assets/icons/Book.svg?react";
 import CaretRightSquare from "@assets/icons/CaretRightSquare.svg?react";
 import MusicNote from "@assets/icons/MusicNote.svg?react";
-import Pencil from "@assets/icons/MusicNote.svg?react";
+import Pencil from "@assets/icons/Pencil.svg?react";
 import styles from "./MaterialsTabs.module.css";
-import { TabType } from "@models";
+import { TabType, UserRole } from "@models";
 
 interface MaterialsTabsProps {
-  variant: "student" | "teacher";
+  variant: UserRole;
   activeTab: TabType;
   onTabChange: (tab: TabType) => void;
 }
@@ -28,7 +28,7 @@ export const MaterialsTabs = ({
     { id: "feedback", label: "Обратная связь", icon: <Pencil /> },
   ];
 
-  const tabs = variant === "student" ? studentTabs : teacherTabs;
+  const tabs = variant === "Ученик" ? studentTabs : teacherTabs;
 
   return (
     <div className={styles.container}>

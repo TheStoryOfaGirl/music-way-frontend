@@ -1,0 +1,51 @@
+.condition {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 16px;
+}
+
+.task_name {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+}
+
+.btn {
+  padding: 12px 24px;
+}
+
+.icon {
+  filter: invert(18%) sepia(87%) saturate(4661%) hue-rotate(278deg) brightness(79%) contrast(107%);
+  cursor: pointer;
+}
+
+.modal {
+  width: 480px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.heading_modal {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.piano {
+  align-self: center;
+  margin-block: 24px;
+}
+
+.cards {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  margin-top: 8px;
+}

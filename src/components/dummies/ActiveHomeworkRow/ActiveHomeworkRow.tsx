@@ -9,45 +9,49 @@ import {
 import ArrowRightIcon from "@assets/icons/arrow-right.svg?react";
 
 interface ActiveHomeworkRowProps {
-  name: string;
-  startDate?: string;
-  finishDate: string;
-  mark: number;
-  countTasks?: number;
-  variant: "student" | "teacher";
-  onClick?: () => void;
+  topic: string;
+  start_date?: string;
+  end_date: string;
+  max_mark: number;
+  count?: number;
+  variant: "Ученик" | "Преподаватель";
+  onClick: () => void;
 }
 
 export const ActiveHomeworkRow = ({
-  name,
-  startDate,
-  finishDate,
-  mark,
-  countTasks,
+  topic,
+  start_date,
+  end_date,
+  max_mark,
+  count,
   variant,
   onClick,
 }: ActiveHomeworkRowProps) => {
   return (
     <div className={styles.container} onClick={onClick}>
       <div className={styles.content}>
-        <p className={classnames(styles.name, "text_24_b")}>{name}</p>
+        <p className={classnames(styles.name, "text_24_b")}>{topic}</p>
         <div className={styles.info}>
-          {variant === "student" ? (
+          {variant === "Ученик" ? (
             <>
-              <p className={classnames(styles.finish_date, "text_20_r")}>
-                {formatFinishDate(finishDate)}
+              <p className={classnames(styles.finish_date, "text_24_r")}>
+                {formatFinishDate(end_date)}
               </p>
               <p
-                className={classnames(styles.mark, "text_20_b")}
-              >{`Максимум ${mark} баллов`}</p>
+                className={classnames(styles.mark, "text_24_b")}
+              >{`Максимум ${pluralize(max_mark as number, [
+                "балл",
+                "балла",
+                "баллов",
+              ])}`}</p>
             </>
           ) : (
             <>
-              <p className={classnames(styles.date, "text_20_r")}>
-                {formatDateRange(startDate as string, finishDate)}
+              <p className={classnames(styles.date, "text_24_r")}>
+                {formatDateRange(start_date as string, end_date)}
               </p>
-              <p className={classnames(styles.count_tasks, "text_20_r")}>
-                {pluralize(countTasks as number, [
+              <p className={classnames(styles.count_tasks, "text_24_r")}>
+                {pluralize(count as number, [
                   "задание",
                   "задания",
                   "заданий",
@@ -57,7 +61,7 @@ export const ActiveHomeworkRow = ({
           )}
         </div>
       </div>
-      {variant === "student" ? (
+      {variant === "Ученик" ? (
         <Button
           className="text_24_b"
           icon={<ArrowRightIcon style={{ width: "32px", height: "32px" }} />}
@@ -70,7 +74,11 @@ export const ActiveHomeworkRow = ({
       ) : (
         <p
           className={classnames(styles.mark_big, "text_24_b")}
-        >{`Максимум ${mark} баллов`}</p>
+        >{`Максимум ${pluralize(max_mark as number, [
+          "балл",
+          "балла",
+          "баллов",
+        ])}`}</p>
       )}
     </div>
   );

@@ -1,6 +1,6 @@
 export const URLS = {
   AUTH: {
-    LOGIN: "/login",
+    LOGIN: "/",
     REGISTER: "/register",
   },
   MATERIALS: "/materials",
@@ -8,8 +8,9 @@ export const URLS = {
     CLASSES: "/classes",
   },
   STUDENT: {
-    HOMEWORKS: "/",
+    HOMEWORKS: "/homeworks",
     TRAINING_SIMULATORS: "/training-simulators",
-    STATISTICS: "statistics",
+    STATISTICS: "/statistics",
   },
+  NOT_FOUND: '/not-found'
 };

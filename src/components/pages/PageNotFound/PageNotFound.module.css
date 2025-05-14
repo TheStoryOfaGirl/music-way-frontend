@@ -1,0 +1,31 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+  text-align: center;
+  margin-top: max(80px, 9.62vh);
+  padding-bottom: max(80px, 9.62vh);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+}
+
+.back {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+}
+
+.back svg {
+  filter: invert(43%) sepia(42%) saturate(1140%) hue-rotate(203deg)
+    brightness(99%) contrast(96%);
+}
+
+.link {
+  color: var(--blue-base-500);
+}

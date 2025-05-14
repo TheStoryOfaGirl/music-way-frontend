@@ -1,6 +1,7 @@
 .table {
   overflow-x: auto;
   width: 100%;
+  padding-bottom: 8px;
 }
 
 .table::-webkit-scrollbar {
@@ -69,4 +70,9 @@
   white-space: normal;
   width: auto;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.notDataMessage {
+  text-align: center;
+  margin-top: 32px;
 }

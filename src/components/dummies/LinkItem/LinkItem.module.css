@@ -19,7 +19,7 @@
 }
 
 .link::before {
-  content: "•"; /* или любой символ/эмодзи */
+  content: "•";
   align-self: center;
   font-size: 10px;
   margin-right: 16px;

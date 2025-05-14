@@ -86,10 +86,32 @@ body {
   font-family: "Nunito";
   font-size: 1rem;
   color: var(--gray-dark-800);
+  overflow-y: scroll;
 }
 
 .modalOpen {
   overflow: hidden;
   position: fixed;
   width: 100%;
+  /* padding-right: 8px; */
+}
+
+
+::-webkit-scrollbar-track {
+  background: transparent; 
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gray-light-200); 
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar {
+  width: 8px; 
+  height: 8px; 
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gray-base-500); 
 }

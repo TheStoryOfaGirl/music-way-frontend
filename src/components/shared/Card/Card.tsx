@@ -4,24 +4,21 @@ import SingIcon from "@assets/images/sing.svg?react";
 
 interface CardProps {
   name: string;
-  path: string;
-  width: "fix" | "fill";
+  pathImage: string;
+  hover: "outline" | "up";
   onClick?: () => void;
 }
 
-export const Card = ({ name, path, width, onClick }: CardProps) => {
+export const Card = ({ name, pathImage, hover, onClick }: CardProps) => {
   return (
     <div
       className={classnames(
         styles.container,
-        width === "fix" ? styles.container_fix : styles.container_fill,
+        hover === 'outline' ? styles.outline : styles.up,
       )}
       onClick={onClick}
     >
-      {/* <img src={path} alt={name} className={styles.img}/> */}
-      <SingIcon
-        style={{ width: "max(120px, 8.33vw)", height: "max(120px, 8.33vw)" }}
-      />
+      <img src={pathImage} alt={name} className={styles.img}/>
       <p className="text_24_b">{name}</p>
     </div>
   );

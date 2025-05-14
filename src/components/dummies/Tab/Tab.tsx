@@ -16,6 +16,7 @@ export const Tab = ({ name, active, onClick }: TabProps) => {
         active === name ? styles.tab_active : "",
       )}
       onClick={() => onClick(name)}
+      data-text={name}
     >
       {name}
     </p>

@@ -1,7 +1,7 @@
 .tab {
   padding-block: 4px;
   cursor: pointer;
-  width: min-content;
+  width: max-content;
   user-select: none;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -9,10 +9,15 @@
 }
 
 .tab:hover {
-  font-weight: 800;
+  transform: scale(1.03);
 }
 
 .tab_active {
   font-weight: 800;
   border-bottom: 3px solid var(--purple-base-500);
+}
+
+.tab_active:hover {
+  transform: none;
+  cursor: auto;
 }

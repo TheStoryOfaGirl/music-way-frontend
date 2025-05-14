@@ -33,7 +33,8 @@
       "@components/dummies": ["components/dummies"],
       "@components/layouts": ["components/layouts"],
       "@stores": ["stores"],
-      "@models": ["models"]
+      "@models": ["models"],
+      "@api": ["api"]
     }
   },
   "include": ["src"]

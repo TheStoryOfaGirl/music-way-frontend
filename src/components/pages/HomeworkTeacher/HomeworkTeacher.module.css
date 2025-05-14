@@ -1,0 +1,115 @@
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 16px;
+  text-align: start;
+  margin-top: max(80px, 9.62vh);
+  padding-bottom: max(80px, 9.62vh);
+}
+
+.heading {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 24px;
+}
+
+.related_materials {
+  margin-top: 24px;
+}
+
+.related_materials_list {
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.max_mark {
+  color: var(--purple-base-500);
+}
+
+.date_mark {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 24px;
+}
+
+.block_task_info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 32px;
+  width: 50%;
+}
+
+.tasks_p {
+  color: var(--gray-dark-600)
+}
+
+.results_container {
+  margin-top: 40px;
+}
+
+.results_container h3 {
+  margin-bottom: 24px;
+}
+
+.edit_icons {
+  display: flex;
+  gap: 16px;
+}
+
+.date_edit {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.date_inputs {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.date_input {
+  cursor: pointer;
+  width: 180px;
+}
+
+.date_input:hover {
+  box-shadow: inset 0 0 0 1px var(--purple-base-500);
+}
+
+.date_input:focus {
+  box-shadow: inset 0 0 0 1px var(--gray-base-500);
+}
+
+.input_heading {
+  width: 320px;
+}
+
+.date_calendar {
+  position: relative;
+}
+
+.calendar {
+  position: absolute ;
+  height: auto;
+}
+
+.btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.modal {
+  width: 360px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+

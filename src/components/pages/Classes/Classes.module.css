@@ -1,0 +1,38 @@
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 16px;
+  text-align: start;
+  margin-top: max(80px, 9.62vh);
+  padding-bottom: max(80px, 9.62vh);
+}
+
+.select {
+  width: 300px;
+}
+
+.heading {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.link {
+  padding: 8px 16px;
+}
+
+.select_statistic {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.homeworks {
+  margin-top: 24px;
+}
+
+

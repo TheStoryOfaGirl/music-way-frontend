@@ -1,0 +1,28 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+  text-align: start;
+  margin-top: max(80px, 9.62vh);
+  padding-bottom: max(80px, 9.62vh);
+}
+
+.variants_list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.simulator_container {
+  margin-top: 32px;
+}
+
+.variants_list {
+  margin-top: 24px;
+}
+
+/* @media (min-width: 1920px) { 
+  .variants_list {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+} */

@@ -5,7 +5,7 @@ import { classnames } from "@utils";
 
 interface ModalProps {
   isOpen: boolean;
-  onClose: () => void;
+  onClose?: () => void;
   children: ReactNode;
   className?: string;
 }
@@ -19,7 +19,7 @@ export const Modal = ({
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
-        onClose();
+        if (onClose) onClose();
       }
     };
 
@@ -38,9 +38,9 @@ export const Modal = ({
   if (!modalRoot) return null;
 
   return createPortal(
-    <div className={classnames(styles.container, className)}>
+    <div className={classnames(styles.container)}>
       <div className={styles.background} onClick={onClose} />
-      <div className={styles.modal}>{children}</div>
+      <div className={classnames(styles.modal, className)}>{children}</div>
     </div>,
     modalRoot,
   );

@@ -1,13 +1,13 @@
 import { Loader } from "@components/shared";
 import { Header } from "@components/widgets";
+import { useAuthStore } from "@stores";
 import { Suspense } from "react";
 import { Outlet } from "react-router-dom";
 
 export const Layout = () => {
-  const variant = "student";
   return (
     <Suspense fallback={<Loader />}>
-      <Header variant={variant} />
+      <Header/>
       <Outlet />
     </Suspense>
   );

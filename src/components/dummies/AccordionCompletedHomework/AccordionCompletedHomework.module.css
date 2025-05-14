@@ -4,6 +4,7 @@
   align-items: center;
   padding-block: 16px;
   padding-inline: max(24px, 1.25vw);
+  padding-left: 8px;
   border-radius: 8px;
   cursor: pointer;
   user-select: none;

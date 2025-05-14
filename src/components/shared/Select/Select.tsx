@@ -13,7 +13,7 @@ interface SelectProps {
   placeholder?: string;
   disabled?: boolean;
   className?: string;
-  selectedOption?: SelectOption;
+  selectedOption?: SelectOption | null;
 }
 
 export const Select = ({
@@ -21,7 +21,7 @@ export const Select = ({
   multiple = false,
   onChange,
   placeholder,
-  disabled = false,
+  disabled = options[0].label.includes("Нет"),
   className = "",
   selectedOption,
   ref,
@@ -80,7 +80,7 @@ export const Select = ({
     <div ref={selectRef} className={classnames(styles.container, className)}>
       <div
         ref={ref}
-        className={classnames(styles.select)}
+        className={classnames(styles.select, disabled ? styles.disabled : "",)}
         onClick={() => !disabled && setIsOpen(!isOpen)}
       >
         <div className={styles.selected_options}>
@@ -130,8 +130,9 @@ export const Select = ({
                   key={option.value}
                   className={styles.option}
                   onClick={() => toggleOption(option)}
+                  
                 >
-                  {multiple && <Checkbox checked={isSelected} />}
+                  {multiple && <Checkbox id={option.value} checked={isSelected} />}
                   <p>{option.label}</p>
                 </li>
               );

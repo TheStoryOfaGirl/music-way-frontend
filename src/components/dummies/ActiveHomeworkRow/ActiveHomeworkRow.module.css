@@ -33,6 +33,10 @@
   color: var(--blue-base-500);
 }
 
+.name {
+  text-align: start;
+}
+
 .finish_date,
 .date {
   color: var(--black);

@@ -5,11 +5,13 @@ import "./styles/typography.css";
 import "./styles/reset.css";
 import { BrowserRouter } from "./providers/RouterProvider.tsx";
 import { QueryClientProvider } from "./providers/QueryClientProvider.tsx";
+import { useCheckAuth } from "@api";
+
 
 createRoot(document.getElementById("root")!).render(
-  <StrictMode>
+  // <StrictMode>
     <QueryClientProvider>
       <BrowserRouter />
     </QueryClientProvider>
-  </StrictMode>,
+  // </StrictMode>,
 );

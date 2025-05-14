@@ -3,3 +3,16 @@ export * from "./MaterialsTabs/MaterialsTabs";
 export * from "./TaskRow/TaskRow";
 export * from "./LoginForm/LoginForm";
 export * from "./RegisterForm/RegisterForm";
+export * from "./ChangePasswordForm/ChangePasswordForm"
+export * from "./TrainingSimulatorModal/TrainingSimulatorModal"
+export * from "./ThemesModal/ThemesModal"
+export * from "./Tabs/TabTasks/TabTasks"
+export * from "./Tabs/TabText/TabText"
+export * from "./Tabs/TabVideo/TabVideo"
+export * from "./Tabs/TabFeedback/TabFeedback"
+export * from "./TableStudent/TableStudent"
+export * from "./HomeworksTeacher/HomeworksTeacher"
+export * from "./TableResultsByHomework/TableResultsByHomework"
+export * from "./Tasks/TaskSinging/TaskSinging"
+export * from "./PianoCustom/PianoCustom"
+export * from "./SingingCard/SingingCard"

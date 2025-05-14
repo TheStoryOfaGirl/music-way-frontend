@@ -1,0 +1,19 @@
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.text {
+  padding-bottom: 24px;
+}
+
+.btn {
+  padding: 12px 24px;
+  align-self: flex-end;
+  margin-top: 8px;
+}
+
+.message_success {
+  margin-bottom: 8px;
+  color: var(--green-base-500)
+}

@@ -1,0 +1,45 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+  text-align: start;
+  margin-top: max(80px, 9.62vh);
+  padding-bottom: max(80px, 9.62vh);
+}
+
+.heading {
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 16px;
+}
+
+.topic {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 24px;
+}
+
+.number_list {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+}
+
+.btn {
+  font-family: "Nunito";
+  font-size: clamp(1rem, 1.67vw, 2rem);
+  font-weight: 700;
+  padding: 12px 24px;
+}
+
+.task {
+  max-width: 1050px;
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
