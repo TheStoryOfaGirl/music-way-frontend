@@ -1,7 +1,9 @@
+import { CheckHomework } from "@models";
 import { ChangeEvent } from "react";
 import { create } from "zustand";
 
 export type TasksState = {
+  // answers: string;
   Пропевание: {
     id: string;
     settings: {
@@ -13,6 +15,13 @@ export type TasksState = {
       updateSelectedOptions: (selectedOptions: string[]) => void;
       updateId: (id: string) => void;
     };
+    saveFirstNote: (note: string, task_id: string, homework_id: string) => void;
+    saveSecondNote: (
+      note: string,
+      task_id: string,
+      homework_id: string,
+    ) => void;
+    reset: (task_id: string, homework_id: string) => void;
   };
   "Мелодия на клавиатуре": {
     id: string;
@@ -27,6 +36,7 @@ export type TasksState = {
 };
 
 export const useTasksStore = create<TasksState>((set) => ({
+  // answers: localStorage.getItem("answers"),
   Пропевание: {
     id: "",
     settings: {
@@ -70,6 +80,133 @@ export const useTasksStore = create<TasksState>((set) => ({
             id,
           },
         })),
+    },
+    saveFirstNote: (note, task_id, homework_id) => {
+      console.log("note", note);
+      const homeworks = localStorage.getItem("homeworks");
+      if (homeworks) {
+        const homeworkList = JSON.parse(homeworks);
+        if (
+          homeworkList.find(
+            (homework: { homework_id: string; answers: CheckHomework[] }) =>
+              homework.homework_id === homework_id,
+          )
+        ) {
+          localStorage.setItem(
+            "homeworks",
+            JSON.stringify(
+              homeworkList.map(
+                (homework: {
+                  homework_id: string;
+                  answers: CheckHomework[];
+                }) => {
+                  if (homework.homework_id === homework_id) {
+                    return {
+                      ...homework,
+                      answers: [
+                        ...homework.answers,
+                        {
+                          task_id: task_id,
+                          check_data: {
+                            audio_1: note,
+                          },
+                        },
+                      ],
+                    };
+                  }
+                },
+              ),
+            ),
+          );
+        } else {
+          localStorage.setItem(
+            "homeworks",
+            JSON.stringify([
+              ...homeworkList,
+              {
+                homework_id: homework_id,
+                answers: [
+                  {
+                    task_id: task_id,
+                    check_data: {
+                      audio_1: note,
+                    },
+                  },
+                ],
+              },
+            ]),
+          );
+        }
+      } else {
+        localStorage.setItem(
+          "homeworks",
+          JSON.stringify([
+            {
+              homework_id: homework_id,
+              answers: [
+                {
+                  task_id: task_id,
+                  check_data: {
+                    audio_1: note,
+                  },
+                },
+              ],
+            },
+          ]),
+        );
+      }
+    },
+    saveSecondNote: (note, task_id, homework_id) => {
+      const homeworks = localStorage.getItem("homeworks");
+      if (homeworks) {
+        const homeworksList: {
+          homework_id: string;
+          answers: CheckHomework[];
+        }[] = JSON.parse(homeworks).map(
+          (homework: { homework_id: string; answers: CheckHomework[] }) => {
+            if (homework.homework_id === homework_id) {
+              return {
+                ...homework,
+                answers: homework.answers.map((answer) => {
+                  if (answer.task_id === task_id) {
+                    return {
+                      ...answer,
+                      check_data: {
+                        ...answer.check_data,
+                        audio_2: note,
+                      },
+                    };
+                  }
+                }),
+              };
+            }
+          },
+        );
+        localStorage.setItem("homeworks", JSON.stringify(homeworksList));
+      }
+    },
+    reset: (task_id, homework_id) => {
+      const homeworks = localStorage.getItem("homeworks");
+      if (homeworks) {
+        const homeworkList: {
+          homework_id: string;
+          answers: CheckHomework[];
+        }[] = JSON.parse(homeworks).map(
+          (homework: { homework_id: string; answers: CheckHomework[] }) => {
+            if (homework.homework_id === homework_id) {
+              const filterAnswers = homework.answers.filter(
+                (answer: CheckHomework) => answer.task_id !== task_id,
+              );
+              return {
+                homework_id: homework_id,
+                answers: filterAnswers,
+              };
+            }
+          },
+        );
+        // if (homeworkList)
+        localStorage.setItem("homeworks", JSON.stringify(homeworkList));
+      }
     },
   },
   "Мелодия на клавиатуре": {

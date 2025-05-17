@@ -12,12 +12,12 @@ export const PianoCustom = () => {
   const soundfontHostname = 'https://d1pzp51pvbm36p.cloudfront.net';
   
   const noteRange = {
-    first: MidiNumbers.fromNote('c2'),
-    last: MidiNumbers.fromNote('c5'),
+    first: MidiNumbers.fromNote('c3'),
+    last: MidiNumbers.fromNote('c6'),
   };
   const keyboardShortcuts = KeyboardShortcuts.create({
-    firstNote: MidiNumbers.fromNote('c3'),
-    lastNote:  MidiNumbers.fromNote('c5'),
+    firstNote: MidiNumbers.fromNote('c4'),
+    lastNote:  MidiNumbers.fromNote('c6'),
     keyboardConfig: [...KeyboardShortcuts.HOME_ROW]
   });
   return (
@@ -34,7 +34,7 @@ export const PianoCustom = () => {
           disabled={isLoading}
           keyboardShortcuts={keyboardShortcuts}
           renderNoteLabel={({ midiNumber }: {midiNumber: number}) => {
-            if (midiNumber === 48) {
+            if (midiNumber === 60) {
               return 'до'
             }
             return null

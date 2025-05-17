@@ -6,6 +6,7 @@ import {
   UpdateHomeworkTeacher,
   TrainingSimulatorShort,
   CreateHomework,
+  CheckHomework,
 } from "@models";
 import { api } from "./../../api/api.ts";
 import { enqueueRequest, startRefresh } from "./../../api/queue.ts";
@@ -96,5 +97,18 @@ export const createHomeworkTeacher = async (
   }
   return enqueueRequest<{id: string}>(() =>
     api.post<{id: string}>(`/homeworks`, data),
+  );
+};
+
+
+export const submitHomeworkStudent = async (
+  homework_id: string,
+  data: CheckHomework[] | undefined
+  ): Promise<AxiosResponse> => {
+  if (!localStorage.getItem("accessToken")) {
+    await startRefresh();
+  }
+  return enqueueRequest<{id: string}>(() =>
+    api.post(`/homeworks/${homework_id}/submit`, data),
   );
 };

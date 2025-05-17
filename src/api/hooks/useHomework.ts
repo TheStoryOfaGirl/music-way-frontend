@@ -7,12 +7,13 @@ import {
   getHomeworks,
   getHomeworkTeacher,
   getVariantsTaskByBlock,
+  submitHomeworkStudent,
   updateHomeworkTeacher,
 } from "./../../api/services";
 import { useAuthStore } from "@stores";
 import { useCheckAuth } from "./useAuth";
 import { AxiosError, AxiosResponse } from "axios";
-import { ErrorResponse, HomeworkShort, UpdateHomeworkTeacher } from "@models";
+import { CheckHomework, ErrorResponse, HomeworkShort, UpdateHomeworkTeacher } from "@models";
 
 export const useGetHomeworks = (active: boolean) => {
   // const {isSuccess} = useCheckAuth(window.location.pathname);
@@ -86,3 +87,17 @@ export const useCreateHomeworkTeacher = () => {
     mutationKey: ["create-homework"],
   });
 };
+
+export const useSubmitHomeworkStudent = () => {
+  return useMutation({
+    mutationFn: ({
+      homework_id,
+      data,
+    }: {
+      homework_id: string;
+      data: CheckHomework[] | undefined;
+    }) => submitHomeworkStudent(homework_id, data),
+    mutationKey: ["submit-homework"],
+  });
+};
+

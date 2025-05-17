@@ -1,6 +1,6 @@
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import styles from "./ActiveHomeworkInfo.module.css";
-import { formatFinishDate, pluralize, URLS } from "@utils";
+import { checkActiveHomework, formatFinishDate, pluralize, URLS } from "@utils";
 import { Button, IconContainer, Loader } from "@components/shared";
 import { useCheckAuth, useGetActiveHomeworkInfo } from "@api";
 import ChevronLeftIcon from "@assets/icons/chevron-left.svg?react";
@@ -11,21 +11,27 @@ const ActiveHomeworkInfo = () => {
   const { isSuccess: isSuccessAuth, isLoading: isLoadingAuth } = useCheckAuth(
     location.pathname,
   );
-
   const { id } = useParams<{ id: string }>();
   const {
     data,
     isSuccess,
     isLoading: isLoadingActiveHomework,
   } = useGetActiveHomeworkInfo(id as string);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   if (isLoadingActiveHomework || isLoadingAuth) return <Loader />;
   return (
     <>
       {isSuccess && isSuccessAuth && (
         <div className={styles.container}>
           <div className={styles.heading}>
-            <IconContainer color="blue" content="icon" shadow onClick={() => {navigate(-1)}}>
+            <IconContainer
+              color="blue"
+              content="icon"
+              shadow
+              onClick={() => {
+                navigate(-1);
+              }}
+            >
               <ChevronLeftIcon width={48} height={48} />
             </IconContainer>
             <h1 className="heading_2">{data.data.topic}</h1>
@@ -67,12 +73,24 @@ const ActiveHomeworkInfo = () => {
               </p>
               <ul className={styles.related_materials_list}>
                 {data.data.related_materials.map((link) => (
-                  <LinkItem key={link.id} name={link.name} path={`${URLS.MATERIALS}/${link.id}`} />
+                  <LinkItem
+                    key={link.id}
+                    name={link.name}
+                    path={`${URLS.MATERIALS}/${link.id}`}
+                  />
                 ))}
               </ul>
             </div>
           </div>
-          <Button color="purple" className={styles.btn} onClick={() => {navigate(`${URLS.STUDENT.HOMEWORKS}/${id}/active/execute`)}}>Выполнить</Button>
+          <Button
+            color="purple"
+            className={styles.btn}
+            onClick={() => {
+              navigate(`${URLS.STUDENT.HOMEWORKS}/${id}/active/execute`);
+            }}
+          >
+            {checkActiveHomework(id as string) ? "Продолжить" : "Выполнить"}
+          </Button>
         </div>
       )}
     </>

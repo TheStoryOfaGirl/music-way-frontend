@@ -7,7 +7,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap:16px;
+  gap: 16px;
   border-radius: 16px;
   padding: 32px;
 }
@@ -25,8 +25,16 @@
   cursor: pointer;
 }
 
-.audio audio{
-  background-color: none;
+.audio audio {
+  width: 320px;
+  height: 44px;
+  border-radius: 50px;
+  border: 3px solid var(--sky-base-500);
+  accent-color: var(--sky-dark-700);
+}
+
+audio::-webkit-media-controls-panel {
+  background-color: var(--white);
 }
 
 .btn {
@@ -35,5 +43,14 @@
 
 .disable_card {
   opacity: 0.5;
-  
+  pointer-events: none;
 }
+
+.active_mic {
+  border: 5px solid var(--purple-base-500);
+}
+
+.check_icon {
+  filter: invert(63%) sepia(23%) saturate(7146%) hue-rotate(112deg) brightness(92%) contrast(86%);
+}
+

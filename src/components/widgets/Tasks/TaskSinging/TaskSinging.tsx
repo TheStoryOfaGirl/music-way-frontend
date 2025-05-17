@@ -4,6 +4,9 @@ import QuestionCircle from "@assets/icons/QuestionCircle.svg?react";
 import CloseIcon from "@assets/icons/X.svg?react";
 import { useState } from "react";
 import { PianoCustom, SingingCard} from "@components/widgets";
+import { useTasksStore } from "@stores";
+import { getActiveNoteAndStatus } from "@utils";
+import { useParams } from "react-router-dom";
 
 interface TaskSingingProps {
   id: string;
@@ -20,10 +23,11 @@ export const TaskSinging = ({
   description,
 }: TaskSingingProps) => {
   const [showModal, setShowModal] = useState(false);
-  const [activeNote, setActiveNote] = useState("first");
-  // const handleVoiceRecorded = (cardId: string, audioBlob: Blob) => {
-  //   console.log(`Аудио записано для карточки ${cardId}`, audioBlob);
-  // };
+  const {id: homework_id} = useParams();
+  console.log(homework_id);
+  const [activeNote, setActiveNote] = useState(getActiveNoteAndStatus(id, homework_id as string));
+  const tasks = useTasksStore();
+  console.log(activeNote, getActiveNoteAndStatus(id, homework_id as string));
   return (
     <>
       <div className={styles.task_name}>
@@ -35,7 +39,10 @@ export const TaskSinging = ({
       </div>
       <div className={styles.condition}>
         <p className="text_32_r">{condition}</p>
-        <Button variant="secondary" className={styles.btn}>
+        <Button variant="secondary" className={styles.btn} onClick={() => {
+          tasks["Пропевание"].reset(id, homework_id as string)
+          setActiveNote({note: 'first', saved: false})
+        }}>
           Записать заново
         </Button>
       </div>
@@ -43,8 +50,8 @@ export const TaskSinging = ({
         <PianoCustom />
       </div>
       <div className={styles.cards}>
-        <SingingCard name="first" activeNote={activeNote} setActiveNote={setActiveNote}/>
-        <SingingCard name="second" activeNote={activeNote} setActiveNote={setActiveNote}/>
+        <SingingCard saved={activeNote.note === 'second'} name="first" activeNote={activeNote.note} setActiveNote={setActiveNote} taskId={id}/>
+        <SingingCard saved={activeNote.note === 'second' && activeNote.saved} name="second" activeNote={activeNote.note} setActiveNote={setActiveNote} taskId={id}/>
       </div>
       <Modal
         isOpen={showModal}

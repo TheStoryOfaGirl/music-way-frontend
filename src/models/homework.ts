@@ -117,3 +117,13 @@ export type CreateHomeworkData = {
 };
 
 export type MelodyCreate = Omit<Melody, "name">
+
+export type CheckHomework = {
+  task_id: string;
+  check_data: CheckTaskSingingAudio
+}
+
+export type CheckTaskSingingAudio = {
+  audio_1: string;
+  audio_2: string;
+}
