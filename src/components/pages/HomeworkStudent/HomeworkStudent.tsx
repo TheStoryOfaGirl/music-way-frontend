@@ -9,7 +9,7 @@ import {
 } from "@api";
 import { useState } from "react";
 import { TaskSinging } from "@components/widgets";
-import { classnames, URLS } from "@utils";
+import { classnames, deleteHomeworkFromLocalStorage, URLS } from "@utils";
 import { CheckHomework } from "@models";
 
 function HomeworkStudent() {
@@ -45,6 +45,7 @@ function HomeworkStudent() {
       },
       {
         onSuccess: () => {
+          deleteHomeworkFromLocalStorage(id as string);
           navigate(`${URLS.STUDENT.HOMEWORKS}/${id}/completed`);
         },
       },
@@ -116,6 +117,7 @@ function HomeworkStudent() {
             color="purple"
             onClick={handleClick}
             className={styles.btn_ready}
+            disabled={isPending}
           >
             {isPending ? "Загрузка..." : "Завершить"}
           </Button>
