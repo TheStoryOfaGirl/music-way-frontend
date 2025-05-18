@@ -15,6 +15,14 @@ export const checkActiveHomework = (homework_id: string) => {
   }
 }
 
+export const deleteHomeworkFromLocalStorage = (homework_id: string) => {
+  const homeworks = localStorage.getItem("homeworks");
+  if (homeworks) {
+    const homeworkList = JSON.parse(homeworks);
+    localStorage.setItem("homeworks", homeworkList.filter((homework: {homework_id: string, answers: CheckHomework[]}) => homework.homework_id !== homework_id))
+  }
+}
+
 export const getActiveNoteAndStatus = (task_id: string, homework_id: string) => {
   const homeworks = localStorage.getItem("homeworks");
   const homeworkList: { homework_id: string; answers: CheckHomework[] }[] =

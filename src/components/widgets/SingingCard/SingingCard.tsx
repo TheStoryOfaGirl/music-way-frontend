@@ -112,7 +112,7 @@ export const SingingCard = ({
       )}
       {condition === "recorded" && (
         <p className="text_24_r">
-          Послушай аудиозапись. Если не сомневаешься в ответе, нажми сохранить
+          Послушай аудиозапись. Если не<br/> сомневаешься в ответе, нажми сохранить
         </p>
       )}
       <div className={styles.audio}>

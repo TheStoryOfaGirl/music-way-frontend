@@ -3,7 +3,7 @@ import styles from "./CompletedHomeworkStudent.module.css";
 import ChevronLeftIcon from "@assets/icons/chevron-left.svg?react";
 import { useCheckAuth, useGetCompletedHomework } from "@api";
 import { useLocation, useParams, useNavigate } from "react-router-dom";
-import { formatScoreCompletedHomework } from "@utils";
+import { formatScoreCompletedHomework, URLS } from "@utils";
 import {
   AccordionCompletedHomework,
   CompletedHomeworkRow,
@@ -33,7 +33,7 @@ const CompletedHomeworkStudent = () => {
               content="icon"
               shadow
               onClick={() => {
-                navigate(-1);
+                navigate(`${URLS.STUDENT.HOMEWORKS}`);
               }}
             >
               <ChevronLeftIcon width={48} height={48} />

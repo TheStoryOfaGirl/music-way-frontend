@@ -1,5 +1,5 @@
 .card {
-  width: max(500px, 32.8vw);
+  width: max(500px, 33.8vw);
   height: max(510px, 33vw);
   background-color: var(--white);
   box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.25);
@@ -10,6 +10,7 @@
   gap: 16px;
   border-radius: 16px;
   padding: 32px;
+  text-align: center;
 }
 
 .icon {

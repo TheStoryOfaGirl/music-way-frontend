@@ -177,9 +177,11 @@ export const useTasksStore = create<TasksState>((set) => ({
                       },
                     };
                   }
+                  return answer
                 }),
               };
             }
+            return homework
           },
         );
         localStorage.setItem("homeworks", JSON.stringify(homeworksList));
