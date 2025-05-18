@@ -26,6 +26,7 @@ export const useGetHomeworks = (active: boolean) => {
     queryKey: ["get-homeworks", active],
     queryFn: () => getHomeworks(active),
     enabled: !!localStorage.getItem("accessToken"),
+    staleTime: 1000
   });
 };
 

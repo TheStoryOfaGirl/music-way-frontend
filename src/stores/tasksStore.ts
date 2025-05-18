@@ -114,6 +114,7 @@ export const useTasksStore = create<TasksState>((set) => ({
                       ],
                     };
                   }
+                  return homework;
                 },
               ),
             ),
@@ -177,6 +178,7 @@ export const useTasksStore = create<TasksState>((set) => ({
                       },
                     };
                   }
+                  return answer
                 }),
               };
             }
@@ -202,6 +204,7 @@ export const useTasksStore = create<TasksState>((set) => ({
                 answers: filterAnswers,
               };
             }
+            
           },
         );
         // if (homeworkList)
