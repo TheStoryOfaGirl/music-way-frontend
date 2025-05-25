@@ -10,7 +10,6 @@ import {
 
 import styles from "./BarChartCustom.module.css";
 import { classnames } from "@utils";
-import { useCallback, useEffect, useRef, useState } from "react";
 
 interface BarChartCustomProps<T> {
   data: T[];
@@ -87,13 +86,13 @@ export function BarChartCustom<T>({
               tick={{ fill: "var(--black)" }}
             />
           ) : (
-              <YAxis
-                type="category"
-                dataKey="name"
-                width={sizeCategoryAxis}
-                tick={{ fill: "var(--black)" }}
-                style={{ overflowWrap: "break-word" }}
-              />
+            <YAxis
+              type="category"
+              dataKey="name"
+              width={sizeCategoryAxis}
+              tick={{ fill: "var(--black)" }}
+              style={{ overflowWrap: "break-word" }}
+            />
           )}
           <Tooltip
             formatter={(value, name) => [`${value}%`, name]}

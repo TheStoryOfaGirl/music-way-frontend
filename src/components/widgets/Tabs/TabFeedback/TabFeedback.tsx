@@ -1,8 +1,8 @@
 import { FormProvider, useForm } from "react-hook-form";
 import styles from "./TabFeedback.module.css";
 import { Button, Textarea } from "@components/shared";
-import { useChangePassword, useCheckAuth, usePostFeedbackByTheme } from "@api";
-import { ChangePasswordData, FeedbackData } from "@models";
+import { useCheckAuth, usePostFeedbackByTheme } from "@api";
+import { FeedbackData } from "@models";
 import { classnames } from "@utils";
 import { useLocation, useParams } from "react-router-dom";
 
@@ -33,9 +33,15 @@ export const TabFeedback = () => {
               onSubmit={methods.handleSubmit(onSubmit)}
               className={styles.form}
             >
-              <Textarea name="comment" color="blue" rows={7} placeholder="Напишите комментарий..." rules={{
+              <Textarea
+                name="comment"
+                color="blue"
+                rows={7}
+                placeholder="Напишите комментарий..."
+                rules={{
                   required: "Поле обязательно для заполнения",
-                }}/>
+                }}
+              />
               <Button
                 className={classnames(styles.btn, "text_20_b")}
                 type="submit"

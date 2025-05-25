@@ -12,5 +12,5 @@ export const URLS = {
     TRAINING_SIMULATORS: "/training-simulators",
     STATISTICS: "/statistics",
   },
-  NOT_FOUND: '/not-found'
+  NOT_FOUND: "/not-found",
 };

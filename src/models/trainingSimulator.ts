@@ -1,7 +1,7 @@
 export type TrainingSimulatorShort = {
   block_name: string;
-  variants: TrainingSimulatorVariantShort[]
-}
+  variants: TrainingSimulatorVariantShort[];
+};
 
 export type TrainingSimulatorVariantShort = {
   id: string;
@@ -9,7 +9,7 @@ export type TrainingSimulatorVariantShort = {
   image_url: string;
   description: string;
   demo_url: string;
-}
+};
 
 export type TrainingSimulatorVariant = {
   id: string;
@@ -17,7 +17,7 @@ export type TrainingSimulatorVariant = {
   description: string;
   demo_url: string;
   settings: Settings;
-}
+};
 
 export type Settings = {
   description: string;
@@ -28,8 +28,5 @@ export type Settings = {
 
 export type Melody = {
   id: string;
-  name: string
-}
-
-
-
+  name: string;
+};

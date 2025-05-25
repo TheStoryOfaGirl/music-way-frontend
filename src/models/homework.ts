@@ -10,7 +10,7 @@ export type HomeworkShort = {
 export type HomeworkShortTeacher = HomeworkShort & {
   start_date: string;
   count: number;
-} 
+};
 
 export type ActiveHomeworkInfo = {
   id: string;
@@ -66,28 +66,31 @@ export type HomeworkTeacher = {
   end_date: string;
   max_mark: number;
   block: string;
-  task_type_variants: ActiveHomeworkVariantTask[],
-  related_materials: RelatedMaterial[],
-  is_completed: boolean,
-  start_date: string,
-  results: ResultStudentByHomework[]
-}
+  task_type_variants: ActiveHomeworkVariantTask[];
+  related_materials: RelatedMaterial[];
+  is_completed: boolean;
+  start_date: string;
+  results: ResultStudentByHomework[];
+};
 
 export type ResultStudentByHomework = {
   name: string;
   surname: string;
   patronymic: string;
   student_mark: number;
-  tasks: ResultStudentByTask[]
-}
+  tasks: ResultStudentByTask[];
+};
 
 export type ResultStudentByTask = {
   name: string;
   student_mark: number;
   max_mark: string;
-}
+};
 
-export type UpdateHomeworkTeacher = Pick<HomeworkTeacher, "topic" | "start_date" | "end_date">
+export type UpdateHomeworkTeacher = Pick<
+  HomeworkTeacher,
+  "topic" | "start_date" | "end_date"
+>;
 
 export type CreateHomework = {
   topic: string;
@@ -95,19 +98,19 @@ export type CreateHomework = {
   end_date: string;
   block_id: string;
   class_id: string;
-  variants: VariantTask[]
-}
+  variants: VariantTask[];
+};
 
 export type VariantTask = {
   variant_id: string;
-  settings: SettingsCreate
-}
+  settings: SettingsTaskCreateHomework;
+};
 
-export type SettingsCreate = {
+export type SettingsTaskCreateHomework = {
   intervals?: string[];
   melodies?: MelodyCreate[];
   count?: number;
-}
+};
 
 export type CreateHomeworkData = {
   topic: string;
@@ -116,14 +119,18 @@ export type CreateHomeworkData = {
   countTasks: number;
 };
 
-export type MelodyCreate = Omit<Melody, "name">
+export type MelodyCreate = Omit<Melody, "name">;
 
 export type CheckHomework = {
   task_id: string;
-  check_data: CheckTaskSingingAudio
-}
+  check_data: CheckTaskSingingAudio | CheckTaskMelodyOnPiano;
+};
 
 export type CheckTaskSingingAudio = {
   audio_1: string;
   audio_2: string;
-}
+};
+
+export type CheckTaskMelodyOnPiano = {
+  notes: string[];
+};

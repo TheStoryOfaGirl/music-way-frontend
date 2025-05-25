@@ -1,9 +1,7 @@
-import { InputHTMLAttributes, useState } from "react";
 import styles from "./Checkbox.module.css";
 import { classnames } from "@utils";
 
-interface CheckboxProps
- {
+interface CheckboxProps {
   className?: string;
   label?: string;
   labelClassName?: string;
@@ -22,12 +20,10 @@ export const Checkbox = ({
   checked,
   ...props
 }: CheckboxProps) => {
-  // const [isChecked, setIsChecked] = useState(false);
   const handleChange = () => {
     if (onChange) {
-      onChange(!checked); 
+      onChange(!checked);
     }
-    //if (onClick) onClick();
   };
   return (
     <div className={classnames(styles.container, containerClassName)}>
@@ -40,7 +36,6 @@ export const Checkbox = ({
       />
       {label && (
         <label
-          htmlFor={props.id}
           className={classnames(
             styles.label_checkbox,
             "text_20_r",

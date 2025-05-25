@@ -15,11 +15,9 @@ type AuthState = {
   ) => void;
   logout: () => void;
   changePassword: () => void;
-  // checkAuth: (isAuthenticated: boolean) => void;
-  // hasRole: (role: UserRole) => boolean; // Проверка роли
 };
 
-export const useAuthStore = create<AuthState>((set, _) => ({
+export const useAuthStore = create<AuthState>((set) => ({
   user: null,
   isAuthenticated: localStorage.getItem("isAuthenticated") === "true",
   isChangedPassword: localStorage.getItem("isChangedPassword") === "true",
@@ -41,6 +39,7 @@ export const useAuthStore = create<AuthState>((set, _) => ({
     localStorage.removeItem("role");
     localStorage.removeItem("name");
     localStorage.removeItem("isAuthenticated");
+    localStorage.removeItem("homeworks");
     set({
       isAuthenticated: false,
       role: null,
@@ -52,12 +51,4 @@ export const useAuthStore = create<AuthState>((set, _) => ({
     localStorage.setItem("isChangedPassword", String("true"));
     set({ isChangedPassword: true });
   },
-  // checkAuth: (isAuthenticated) => {
-  //   localStorage.setItem("isAuthenticated", String(isAuthenticated));
-  //   set({ isAuthenticated });
-  // },
-  // hasRole: (role) => {
-  //   const currentRole = get().role;
-  //   return currentRole === role;
-  // },
 }));

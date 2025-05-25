@@ -5,7 +5,6 @@ import {
   useGetThemes,
 } from "@api";
 import { Card, Loader, Search } from "@components/shared";
-import { useAuthStore } from "@stores";
 import { useLocation } from "react-router-dom";
 import styles from "./Materials.module.css";
 import { ChangeEvent, useState } from "react";
@@ -42,8 +41,6 @@ function Materials() {
     setSearch(e.target.value);
   };
 
-  console.log(debouncedValue);
-
   if (isLoadingAuth || isLoadingMaterials) return <Loader />;
 
   return (
@@ -62,7 +59,10 @@ function Materials() {
                 {foundMaterials.data.length > 0 ? (
                   <>
                     {foundMaterials.data.map((material) => (
-                      <LinkItem name={material.name} path={`${URLS.MATERIALS}/${material.id}`} />
+                      <LinkItem
+                        name={material.name}
+                        path={`${URLS.MATERIALS}/${material.id}`}
+                      />
                     ))}
                   </>
                 ) : (

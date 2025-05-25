@@ -30,8 +30,6 @@ const Homeworks = () => {
     error: errorCompletedHomework,
   } = useGetHomeworks(false);
   const navigate = useNavigate();
-  console.log(errorActiveHomework, errorActiveHomework?.message);
-  console.log(errorCompletedHomework);
   if (
     isLodaingActiveHomeworks ||
     isLodaingCompletedHomeworks ||

@@ -4,7 +4,7 @@ import { useAuthStore } from "@stores";
 interface RoleGuardProps {
   roles: UserRole[];
   children: React.ReactNode;
-};
+}
 
 export const RoleGuard = ({ roles, children }: RoleGuardProps) => {
   const { role } = useAuthStore();

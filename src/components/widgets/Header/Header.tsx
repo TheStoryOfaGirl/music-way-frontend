@@ -4,15 +4,10 @@ import { Button, Logo } from "@components/shared";
 import { Link, useNavigate } from "react-router-dom";
 import ExitIcon from "@assets/icons/BoxArrowRight.svg?react";
 import { useAuthStore } from "@stores";
-import { useCheckAuth, useLogout } from "@api";
+import { useLogout } from "@api";
 
 export const Header = () => {
-  const {
-    role,
-    isAuthenticated,
-    name,
-    isChangedPassword,
-  } = useAuthStore();
+  const { role, isAuthenticated, name, isChangedPassword } = useAuthStore();
   const navigate = useNavigate();
   const { mutate } = useLogout();
   const navList =

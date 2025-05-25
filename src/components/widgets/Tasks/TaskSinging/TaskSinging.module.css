@@ -18,7 +18,8 @@
 }
 
 .icon {
-  filter: invert(18%) sepia(87%) saturate(4661%) hue-rotate(278deg) brightness(79%) contrast(107%);
+  filter: invert(18%) sepia(87%) saturate(4661%) hue-rotate(278deg)
+    brightness(79%) contrast(107%);
   cursor: pointer;
 }
 
@@ -39,6 +40,7 @@
 .piano {
   align-self: center;
   margin-block: 24px;
+  user-select: none;
 }
 
 .cards {

@@ -176,7 +176,6 @@ function HomeworkTeacher() {
                       shape="square"
                       content="icon"
                       onClick={() => {
-                        // setIsEdit((prev) => ({ ...prev, isDelete: true }));
                         setShowModal(true);
                       }}
                     >
@@ -338,15 +337,3 @@ function HomeworkTeacher() {
 }
 
 export default HomeworkTeacher;
-
-// setFormData({
-//   topic: homework?.data.topic,
-//   start_date: {
-//     name: formatDate(homework?.data.start_date as string),
-//     value: homework?.data.start_date,
-//   },
-//   end_date: {
-//     name: formatDate(homework?.data.end_date as string),
-//     value: homework?.data.end_date,
-//   },
-// });

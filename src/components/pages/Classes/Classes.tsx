@@ -1,12 +1,7 @@
-import {
-  useCheckAuth,
-  useGetClasses,
-  useGetClassStudent,
-  useGetCompletedHomeworksTeacher,
-} from "@api";
+import { useCheckAuth, useGetClasses, useGetClassStudent } from "@api";
 import styles from "./Classes.module.css";
-import { Link, useLocation, useParams } from "react-router-dom";
-import { Loader, Select, Table } from "@components/shared";
+import { Link, useLocation } from "react-router-dom";
+import { Loader, Select } from "@components/shared";
 import PeopleIcon from "@assets/icons/PeopleFill.svg?react";
 import { classnames, formatClassStudent, URLS } from "@utils";
 import { useState } from "react";
@@ -57,7 +52,6 @@ function Classes() {
               }
               placeholder="Выбрать класс"
               onChange={(selectedOption) => {
-                console.log(selectedOption);
                 setActiveClassId(
                   classes.data.find((classStudent) => {
                     if (!Array.isArray(selectedOption) && selectedOption) {
@@ -74,7 +68,10 @@ function Classes() {
               }}
             />
             {isSuccessClassStudent && (
-              <Link to={`${URLS.TEACHER.CLASSES}/${activeClassId}/statistic`} className={classnames(styles.link, "text_24_b")}>
+              <Link
+                to={`${URLS.TEACHER.CLASSES}/${activeClassId}/statistic`}
+                className={classnames(styles.link, "text_24_b")}
+              >
                 Перейти к статистике
               </Link>
             )}

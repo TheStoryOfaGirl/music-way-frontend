@@ -1,13 +1,22 @@
-import { HomeworkShort, ErrorResponse, ClassStudentShort, ClassStudent, CompletedHomeworkTeacher } from "@models";
+import {
+  ErrorResponse,
+  ClassStudentShort,
+  ClassStudent,
+  CompletedHomeworkTeacher,
+} from "@models";
 import { useQuery } from "@tanstack/react-query";
-import { getClasses, getClassStudent, getCompletedHomeworksTeacher } from "./../../api/services";
+import {
+  getClasses,
+  getClassStudent,
+  getCompletedHomeworksTeacher,
+} from "./../../api/services";
 import { AxiosResponse, AxiosError } from "axios";
 
 export const useGetClasses = () => {
   return useQuery<
-    AxiosResponse<ClassStudentShort[], any>,
+    AxiosResponse<ClassStudentShort[]>,
     AxiosError<ErrorResponse>,
-    AxiosResponse<ClassStudentShort[], any>,
+    AxiosResponse<ClassStudentShort[]>,
     (string | boolean)[]
   >({
     queryKey: ["get-classes"],
@@ -18,26 +27,28 @@ export const useGetClasses = () => {
 
 export const useGetClassStudent = (classId: string) => {
   return useQuery<
-    AxiosResponse<ClassStudent, any>,
+    AxiosResponse<ClassStudent>,
     AxiosError<ErrorResponse>,
-    AxiosResponse<ClassStudent, any>,
+    AxiosResponse<ClassStudent>,
     (string | boolean)[]
   >({
     queryKey: ["get-class-student", classId],
     queryFn: () => getClassStudent(classId),
-    enabled: !!localStorage.getItem("accessToken") && !!classId
+    enabled: !!localStorage.getItem("accessToken") && !!classId,
+    staleTime: 1000,
   });
 };
 
 export const useGetCompletedHomeworksTeacher = (classId: string) => {
   return useQuery<
-    AxiosResponse<CompletedHomeworkTeacher[], any>,
+    AxiosResponse<CompletedHomeworkTeacher[]>,
     AxiosError<ErrorResponse>,
-    AxiosResponse<CompletedHomeworkTeacher[], any>,
+    AxiosResponse<CompletedHomeworkTeacher[]>,
     (string | boolean)[]
   >({
     queryKey: ["get-completed-homeworks-teacher", classId],
     queryFn: () => getCompletedHomeworksTeacher(classId),
-    enabled: !!localStorage.getItem("accessToken") && !!classId
+    enabled: !!localStorage.getItem("accessToken") && !!classId,
+    staleTime: 1000,
   });
 };

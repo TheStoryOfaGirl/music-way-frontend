@@ -1,0 +1,52 @@
+.piano {
+  user-select: none;
+  align-self: center;
+  margin-top: 32px;
+}
+
+.icon {
+  filter: invert(18%) sepia(87%) saturate(4661%) hue-rotate(278deg)
+    brightness(79%) contrast(107%);
+  cursor: pointer;
+}
+
+.modal {
+  width: 480px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.heading_modal {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.task_name {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+}
+
+.condition {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 16px;
+}
+
+.btn {
+  padding: 12px 24px;
+}
+
+.btn_container {
+  display: flex;
+  flex-direction: row;
+  gap: 56px;
+  margin-top: 48px;
+  justify-content: center;
+}

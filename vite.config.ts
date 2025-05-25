@@ -6,6 +6,9 @@ import svgr from "vite-plugin-svgr";
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react(), svgr()],
+  server: {
+    port: 3000
+  },
   resolve: {
     alias: {
       "@assets": path.resolve(__dirname, "./src/assets"),
@@ -29,4 +32,14 @@ export default defineConfig({
       "@api": path.resolve(__dirname, "./src/api"),
     },
   },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          piano: ['react-piano', 'soundfont-player'],
+          note: ['abcjs']
+        }
+      }
+    }
+  }
 });

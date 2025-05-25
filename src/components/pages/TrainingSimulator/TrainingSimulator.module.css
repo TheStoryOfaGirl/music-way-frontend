@@ -1,0 +1,57 @@
+.container {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 0 16px;
+  text-align: start;
+  margin-top: max(80px, 9.62vh);
+  padding-bottom: max(80px, 9.62vh);
+}
+
+.training_name_container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.training_name {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 24px;
+}
+
+.icon {
+  filter: invert(18%) sepia(87%) saturate(4661%) hue-rotate(278deg)
+    brightness(79%) contrast(107%);
+  cursor: pointer;
+}
+
+.modal {
+  width: 480px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.heading_modal {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.task_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.task {
+  max-width: 1040px;
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

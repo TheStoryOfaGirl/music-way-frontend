@@ -75,13 +75,15 @@ function StatisticsTeacher() {
                   value: statistic.success_rate,
                 }))}
                 layout="horizontal"
-                sizeCategoryAxis={180}
+                sizeCategoryAxis={300}
                 color="sky"
                 className={styles.bar_chart}
               />
             </div>
           ) : (
-            <p className={classnames("text_24_r", styles.no_homeworks)}>Нет завершенных домашних заданий</p>
+            <p className={classnames("text_24_r", styles.no_homeworks)}>
+              Нет завершенных домашних заданий
+            </p>
           )}
           <div className={styles.chart_info}>
             <p className="heading_3">Успешность выполнения упражнений:</p>
@@ -148,7 +150,9 @@ function StatisticsTeacher() {
             </div>
           )}
           {!statisticByHomeworks.data.length && (
-            <p className={classnames("text_24_r", styles.no_homeworks)}>Нет завершенных домашних заданий</p>
+            <p className={classnames("text_24_r", styles.no_homeworks)}>
+              Нет завершенных домашних заданий
+            </p>
           )}
         </div>
       )}

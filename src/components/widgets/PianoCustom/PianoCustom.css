@@ -1,13 +1,17 @@
 .ReactPiano__Key--accidental {
-  background: var(--gray-dark-800);  /* Change accidental keys to be completely black */
+  background: var(
+    --gray-dark-800
+  ); /* Change accidental keys to be completely black */
 }
 
 .ReactPiano__Key--natural {
-  background: var(--white);  /* Change accidental keys to be completely black */
+  background: var(--white); /* Change accidental keys to be completely black */
 }
 
 .ReactPiano__Key--active {
-  background: var(--sky-base-500);  /* Change the default active key color to bright red */
+  background: var(
+    --sky-base-500
+  ); /* Change the default active key color to bright red */
 }
 
 .ReactPiano__NoteLabelContainer {

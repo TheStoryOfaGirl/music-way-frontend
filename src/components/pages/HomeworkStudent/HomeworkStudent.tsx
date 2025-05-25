@@ -8,9 +8,9 @@ import {
   useSubmitHomeworkStudent,
 } from "@api";
 import { useState } from "react";
-import { TaskSinging } from "@components/widgets";
-import { classnames, deleteHomeworkFromLocalStorage, URLS } from "@utils";
-import { CheckHomework } from "@models";
+import { TaskMelodyOnPiano, TaskSinging } from "@components/widgets";
+import { deleteHomeworkFromLocalStorage, URLS } from "@utils";
+import { CheckHomework, ContentTaskMelodyOnPiano } from "@models";
 
 function HomeworkStudent() {
   const { id } = useParams();
@@ -20,20 +20,26 @@ function HomeworkStudent() {
   const { data: homework, isSuccess: isSuccessHomework } =
     useGetActiveHomeworkInfo(id as string);
   const { mutate, isPending } = useSubmitHomeworkStudent();
-  const { data: task, isSuccess: isSuccessTask } = useGetTask(id as string, activeTask);
+  const { data: task, isSuccess: isSuccessTask } = useGetTask(
+    id as string,
+    activeTask,
+  );
   const getActiveTask = () => {
     if (isSuccessTask) {
       switch (task.data.task_type_variant) {
         case "Пропевание":
           return <TaskSinging {...task.data} />;
+        case "Мелодия на клавиатуре":
+          return (
+            <TaskMelodyOnPiano
+              {...task.data}
+              content={task.data.content as ContentTaskMelodyOnPiano}
+            />
+          );
       }
     }
   };
   const handleClick = () => {
-    console.log(
-      "data",
-      JSON.parse(localStorage.getItem("homeworks") as string),
-    );
     const homeworks = JSON.parse(
       localStorage.getItem("homeworks") as string,
     ) as { homework_id: string; answers: CheckHomework[] }[];

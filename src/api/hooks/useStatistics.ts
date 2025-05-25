@@ -18,9 +18,9 @@ export const useGetStatisticByTopicBlock = (block_id: string) => {
 
 export const useGetStatisticByUser = () => {
   return useQuery<
-    AxiosResponse<StatisticByUser, any>,
+    AxiosResponse<StatisticByUser>,
     AxiosError<ErrorResponse>,
-    AxiosResponse<StatisticByUser, any>,
+    AxiosResponse<StatisticByUser>,
     string[]
   >({
     queryKey: ["get-statistic-by-user"],

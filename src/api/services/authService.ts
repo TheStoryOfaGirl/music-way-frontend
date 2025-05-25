@@ -39,21 +39,19 @@ export const authApi = {
   checkAuth: () => api.get("/auth/login"),
 };
 
-
-
 export const refreshAuthToken = async () => {
   const refreshToken = localStorage.getItem("refreshToken");
   if (!refreshToken) throw new Error("No refresh token");
-  const { data } = await axios.post(`${import.meta.env.VITE_API_URL}auth/refresh`, { refresh_token: refreshToken });
-  console.log(data);
-
+  const { data } = await axios.post(
+    `${import.meta.env.VITE_API_URL}auth/refresh`,
+    { refresh_token: refreshToken },
+  );
   return data;
 };
 
 export const logout = async () => {
-  // Проверяем, есть ли accessToken
   if (!localStorage.getItem("accessToken")) {
-    await startRefresh(); // Ждём обновления токена
+    await startRefresh();
   }
   return enqueueRequest(() => api.delete("/auth/logout"));
 };

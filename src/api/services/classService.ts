@@ -1,7 +1,6 @@
 import {
   ClassStudent,
   ClassStudentShort,
-  CompletedHomeworkStudent,
   CompletedHomeworkTeacher,
 } from "@models";
 import { api } from "./../../api/api";

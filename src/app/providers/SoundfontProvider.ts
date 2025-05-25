@@ -1,11 +1,11 @@
-import React from 'react';
-import Soundfont, { InstrumentName } from 'soundfont-player';
+import React from "react";
+import Soundfont, { InstrumentName } from "soundfont-player";
 
 interface SoundfontProviderProps {
   instrumentName: string;
   hostname: string;
-  format?: 'mp3' | 'ogg';
-  soundfont?: 'MusyngKite' | 'FluidR3_GM';
+  format?: "mp3" | "ogg";
+  soundfont?: "MusyngKite" | "FluidR3_GM";
   audioContext: AudioContext;
   render: (args: {
     isLoading: boolean;
@@ -16,15 +16,18 @@ interface SoundfontProviderProps {
 }
 
 interface SoundfontProviderState {
-  activeAudioNodes: Record<number, AudioBufferSourceNode | null>;
-  instrument: any; 
+  activeAudioNodes: Record<number, AudioBufferSourceNode | Soundfont.Player | null>;
+  instrument: Soundfont.Player | null;
 }
 
-class SoundfontProvider extends React.Component<SoundfontProviderProps, SoundfontProviderState> {
+class SoundfontProvider extends React.Component<
+  SoundfontProviderProps,
+  SoundfontProviderState
+> {
   static defaultProps: Partial<SoundfontProviderProps> = {
-    format: 'mp3',
-    soundfont: 'MusyngKite',
-    instrumentName: 'acoustic_grand_piano',
+    format: "mp3",
+    soundfont: "MusyngKite",
+    instrumentName: "acoustic_grand_piano",
   };
 
   constructor(props: SoundfontProviderProps) {
@@ -50,19 +53,25 @@ class SoundfontProvider extends React.Component<SoundfontProviderProps, Soundfon
       instrument: null,
     });
 
-    Soundfont.instrument(this.props.audioContext, instrumentName as InstrumentName, {
-      format: this.props.format,
-      soundfont: this.props.soundfont,
-      nameToUrl: (name: string, soundfont: string, format: string) => {
-        return `${this.props.hostname}/${soundfont}/${name}-${format}.js`;
+    Soundfont.instrument(
+      this.props.audioContext,
+      instrumentName as InstrumentName,
+      {
+        format: this.props.format,
+        soundfont: this.props.soundfont,
+        nameToUrl: (name: string, soundfont: string, format: string) => {
+          return `${this.props.hostname}/${soundfont}/${name}-${format}.js`;
+        },
       },
-    }).then((instrument) => {
-      this.setState({
-        instrument,
+    )
+      .then((instrument) => {
+        this.setState({
+          instrument,
+        });
+      })
+      .catch((error: Error) => {
+        console.error("Error loading instrument:", error);
       });
-    }).catch((error: Error) => {
-      console.error('Error loading instrument:', error);
-    });
   };
 
   playNote = (midiNumber: number): void => {
@@ -70,7 +79,7 @@ class SoundfontProvider extends React.Component<SoundfontProviderProps, Soundfon
       if (!this.state.instrument) return;
 
       const audioNode = this.state.instrument.play(midiNumber.toString());
-      this.setState(prevState => ({
+      this.setState((prevState) => ({
         activeAudioNodes: {
           ...prevState.activeAudioNodes,
           [midiNumber]: audioNode,
@@ -85,7 +94,7 @@ class SoundfontProvider extends React.Component<SoundfontProviderProps, Soundfon
       if (!audioNode) return;
 
       audioNode.stop();
-      this.setState(prevState => ({
+      this.setState((prevState) => ({
         activeAudioNodes: {
           ...prevState.activeAudioNodes,
           [midiNumber]: null,
@@ -96,7 +105,7 @@ class SoundfontProvider extends React.Component<SoundfontProviderProps, Soundfon
 
   stopAllNotes = (): void => {
     this.props.audioContext.resume().then(() => {
-      Object.values(this.state.activeAudioNodes).forEach(node => {
+      Object.values(this.state.activeAudioNodes).forEach((node) => {
         if (node) {
           node.stop();
         }

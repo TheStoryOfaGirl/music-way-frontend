@@ -7,7 +7,6 @@ export function pluralize(
   if (lastTwo >= 11 && lastTwo <= 14) {
     return `${number} ${variants[2]}`;
   }
-  console.log(variants, number);
   switch (lastOne) {
     case 1:
       return `${number} ${variants[0]}`;

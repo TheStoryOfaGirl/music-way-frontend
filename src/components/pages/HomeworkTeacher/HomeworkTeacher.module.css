@@ -45,7 +45,7 @@
 }
 
 .tasks_p {
-  color: var(--gray-dark-600)
+  color: var(--gray-dark-600);
 }
 
 .results_container {
@@ -96,7 +96,7 @@
 }
 
 .calendar {
-  position: absolute ;
+  position: absolute;
   height: auto;
 }
 
@@ -112,4 +112,3 @@
   flex-direction: column;
   gap: 32px;
 }
-

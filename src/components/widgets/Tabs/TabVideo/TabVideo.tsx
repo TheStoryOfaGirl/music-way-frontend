@@ -1,4 +1,3 @@
-import { useState } from "react";
 import styles from "./TabVideo.module.css";
 
 interface TabVideoProps {

@@ -1,6 +1,7 @@
 import { classnames } from "@utils";
 import styles from "./Table.module.css";
 import { TableColumn } from "@models";
+import { ReactNode } from "react";
 
 interface TableProps<T> {
   columns: TableColumn[];
@@ -9,13 +10,12 @@ interface TableProps<T> {
   notDataMessage: string;
 }
 
-export function Table<T extends Record<string, any>>({
+export function Table<T extends Record<string, ReactNode>>({
   columns,
   data,
   headerVariant = "primary",
   notDataMessage,
 }: TableProps<T>) {
-  console.log(data.length);
   return (
     <div className={styles.table}>
       <div

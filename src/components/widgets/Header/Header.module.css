@@ -20,7 +20,6 @@
 .link {
   padding-block: 8px;
   padding-inline: max(24px, 1.67vw);
-  
 }
 
 .link:hover {

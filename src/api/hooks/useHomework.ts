@@ -10,23 +10,25 @@ import {
   submitHomeworkStudent,
   updateHomeworkTeacher,
 } from "./../../api/services";
-import { useAuthStore } from "@stores";
-import { useCheckAuth } from "./useAuth";
 import { AxiosError, AxiosResponse } from "axios";
-import { CheckHomework, ErrorResponse, HomeworkShort, UpdateHomeworkTeacher } from "@models";
+import {
+  CheckHomework,
+  ErrorResponse,
+  HomeworkShort,
+  UpdateHomeworkTeacher,
+} from "@models";
 
 export const useGetHomeworks = (active: boolean) => {
-  // const {isSuccess} = useCheckAuth(window.location.pathname);
   return useQuery<
-    AxiosResponse<HomeworkShort[], any>,
+    AxiosResponse<HomeworkShort[]>,
     AxiosError<ErrorResponse>,
-    AxiosResponse<HomeworkShort[], any>,
+    AxiosResponse<HomeworkShort[]>,
     (string | boolean)[]
   >({
     queryKey: ["get-homeworks", active],
     queryFn: () => getHomeworks(active),
     enabled: !!localStorage.getItem("accessToken"),
-    staleTime: 1000
+    staleTime: 1000,
   });
 };
 
@@ -51,6 +53,7 @@ export const useGetHomeworkTeacher = (homework_id: string) => {
     queryKey: ["get-completed-homework-teacher", homework_id],
     queryFn: () => getHomeworkTeacher(homework_id),
     enabled: !!localStorage.getItem("accessToken") && !!homework_id,
+    staleTime: 100,
   });
 };
 
@@ -101,4 +104,3 @@ export const useSubmitHomeworkStudent = () => {
     mutationKey: ["submit-homework"],
   });
 };
-

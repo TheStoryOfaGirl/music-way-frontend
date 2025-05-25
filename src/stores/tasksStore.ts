@@ -3,7 +3,6 @@ import { ChangeEvent } from "react";
 import { create } from "zustand";
 
 export type TasksState = {
-  // answers: string;
   Пропевание: {
     id: string;
     settings: {
@@ -32,11 +31,16 @@ export type TasksState = {
       updateSelectedOptions: (selectedOptions: string[]) => void;
       updateId: (id: string) => void;
     };
+    saveMelody: (
+      intervals: string[],
+      task_id: string,
+      homework_id: string,
+    ) => void;
+    reset: (task_id: string, homework_id: string) => void;
   };
 };
 
 export const useTasksStore = create<TasksState>((set) => ({
-  // answers: localStorage.getItem("answers"),
   Пропевание: {
     id: "",
     settings: {
@@ -82,7 +86,6 @@ export const useTasksStore = create<TasksState>((set) => ({
         })),
     },
     saveFirstNote: (note, task_id, homework_id) => {
-      console.log("note", note);
       const homeworks = localStorage.getItem("homeworks");
       if (homeworks) {
         const homeworkList = JSON.parse(homeworks);
@@ -178,11 +181,11 @@ export const useTasksStore = create<TasksState>((set) => ({
                       },
                     };
                   }
-                  return answer
+                  return answer;
                 }),
               };
             }
-            return homework
+            return homework;
           },
         );
         localStorage.setItem("homeworks", JSON.stringify(homeworksList));
@@ -205,10 +208,8 @@ export const useTasksStore = create<TasksState>((set) => ({
                 answers: filterAnswers,
               };
             }
-            
           },
         );
-        // if (homeworkList)
         localStorage.setItem("homeworks", JSON.stringify(homeworkList));
       }
     },
@@ -245,6 +246,103 @@ export const useTasksStore = create<TasksState>((set) => ({
             id,
           },
         })),
+    },
+    saveMelody: (intervals, task_id, homework_id) => {
+      const homeworks = localStorage.getItem("homeworks");
+      if (homeworks) {
+        const homeworkList = JSON.parse(homeworks);
+        if (
+          homeworkList.find(
+            (homework: { homework_id: string; answers: CheckHomework[] }) =>
+              homework.homework_id === homework_id,
+          )
+        ) {
+          localStorage.setItem(
+            "homeworks",
+            JSON.stringify(
+              homeworkList.map(
+                (homework: {
+                  homework_id: string;
+                  answers: CheckHomework[];
+                }) => {
+                  if (homework.homework_id === homework_id) {
+                    return {
+                      ...homework,
+                      answers: [
+                        ...homework.answers,
+                        {
+                          task_id: task_id,
+                          check_data: {
+                            notes: intervals,
+                          },
+                        },
+                      ],
+                    };
+                  }
+                  return homework;
+                },
+              ),
+            ),
+          );
+        } else {
+          localStorage.setItem(
+            "homeworks",
+            JSON.stringify([
+              ...homeworkList,
+              {
+                homework_id: homework_id,
+                answers: [
+                  {
+                    task_id: task_id,
+                    check_data: {
+                      notes: intervals,
+                    },
+                  },
+                ],
+              },
+            ]),
+          );
+        }
+      } else {
+        localStorage.setItem(
+          "homeworks",
+          JSON.stringify([
+            {
+              homework_id: homework_id,
+              answers: [
+                {
+                  task_id: task_id,
+                  check_data: {
+                    notes: intervals,
+                  },
+                },
+              ],
+            },
+          ]),
+        );
+      }
+    },
+    reset: (task_id, homework_id) => {
+      const homeworks = localStorage.getItem("homeworks");
+      if (homeworks) {
+        const homeworkList: {
+          homework_id: string;
+          answers: CheckHomework[];
+        }[] = JSON.parse(homeworks).map(
+          (homework: { homework_id: string; answers: CheckHomework[] }) => {
+            if (homework.homework_id === homework_id) {
+              const filterAnswers = homework.answers.filter(
+                (answer: CheckHomework) => answer.task_id !== task_id,
+              );
+              return {
+                homework_id: homework_id,
+                answers: filterAnswers,
+              };
+            }
+          },
+        );
+        localStorage.setItem("homeworks", JSON.stringify(homeworkList));
+      }
     },
   },
 }));

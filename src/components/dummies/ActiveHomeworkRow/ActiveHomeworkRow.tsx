@@ -51,11 +51,7 @@ export const ActiveHomeworkRow = ({
                 {formatDateRange(start_date as string, end_date)}
               </p>
               <p className={classnames(styles.count_tasks, "text_24_r")}>
-                {pluralize(count as number, [
-                  "задание",
-                  "задания",
-                  "заданий",
-                ])}
+                {pluralize(count as number, ["задание", "задания", "заданий"])}
               </p>
             </>
           )}

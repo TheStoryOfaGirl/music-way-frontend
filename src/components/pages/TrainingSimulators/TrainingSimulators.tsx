@@ -5,7 +5,7 @@ import {
 } from "@api";
 import styles from "./TrainingSimulators.module.css";
 import { useLocation } from "react-router-dom";
-import { Button, Card, Loader, Modal, Select } from "@components/shared";
+import { Card, Loader } from "@components/shared";
 import { useState } from "react";
 import { TrainingSimulatorModal } from "@components/widgets";
 

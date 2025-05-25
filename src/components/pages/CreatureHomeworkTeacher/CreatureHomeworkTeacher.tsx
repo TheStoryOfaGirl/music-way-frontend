@@ -18,12 +18,7 @@ import {
   URLS,
   useOnClickOutside,
 } from "@utils";
-import {
-  CreateHomeworkData,
-  MelodyCreate,
-  ValuePiece,
-  VariantTask,
-} from "@models";
+import { CreateHomeworkData, ValuePiece, VariantTask } from "@models";
 import { RefObject, useRef, useState } from "react";
 import {
   useCreateHomeworkTeacher,

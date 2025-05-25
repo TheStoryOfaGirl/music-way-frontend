@@ -96,22 +96,21 @@ body {
   /* padding-right: 8px; */
 }
 
-
 ::-webkit-scrollbar-track {
-  background: transparent; 
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--gray-light-200); 
+  background: var(--gray-light-200);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar {
-  width: 8px; 
-  height: 8px; 
+  width: 8px;
+  height: 8px;
   background: transparent;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--gray-base-500); 
+  background: var(--gray-base-500);
 }

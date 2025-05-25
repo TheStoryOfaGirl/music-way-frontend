@@ -1,8 +1,4 @@
 import axios from "axios";
-import { refreshAuthToken } from "./services/authService";
-import { URLS } from "@utils";
-import { useNavigate } from "react-router-dom";
-import { useAuthStore } from "@stores";
 import { enqueueRequest, startRefresh } from "./queue";
 
 export const api = axios.create({
@@ -17,14 +13,11 @@ api.interceptors.request.use((config) => {
   return config;
 });
 
-
 api.interceptors.response.use(
   (response) => response,
   async (error) => {
-    console.log('URL запроса:', error.config.method?.toLowerCase() === "get");
     const originalRequest = error.config;
 
-    // Пропускаем запросы на проверку авторизации и обновление токена
     if (
       (originalRequest.url.includes("/auth/login") &&
         originalRequest.method?.toLowerCase() === "get") ||
@@ -33,7 +26,11 @@ api.interceptors.response.use(
       return Promise.reject(error);
     }
 
-    if (error.response?.status === 401 && !originalRequest._retry && originalRequest.method?.toLowerCase() !== "get") {
+    if (
+      error.response?.status === 401 &&
+      !originalRequest._retry &&
+      originalRequest.method?.toLowerCase() !== "get"
+    ) {
       originalRequest._retry = true;
       try {
         await startRefresh();

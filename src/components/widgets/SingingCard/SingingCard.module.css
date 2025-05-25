@@ -11,6 +11,7 @@
   border-radius: 16px;
   padding: 32px;
   text-align: center;
+  user-select: none;
 }
 
 .icon {
@@ -52,6 +53,6 @@ audio::-webkit-media-controls-panel {
 }
 
 .check_icon {
-  filter: invert(63%) sepia(23%) saturate(7146%) hue-rotate(112deg) brightness(92%) contrast(86%);
+  filter: invert(63%) sepia(23%) saturate(7146%) hue-rotate(112deg)
+    brightness(92%) contrast(86%);
 }
-

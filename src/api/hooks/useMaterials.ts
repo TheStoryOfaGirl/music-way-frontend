@@ -1,5 +1,13 @@
 import { useMutation, useQuery } from "@tanstack/react-query";
-import { getFoundMaterials, getMaterials, getTasksByTheme, getTextByTheme, getThemes, getVideoByTheme, postFeedbackByTheme } from "./../../api/services/materialService";
+import {
+  getFoundMaterials,
+  getMaterials,
+  getTasksByTheme,
+  getTextByTheme,
+  getThemes,
+  getVideoByTheme,
+  postFeedbackByTheme,
+} from "./../../api/services/materialService";
 
 export const useGetMaterials = () => {
   return useQuery({
@@ -49,9 +57,8 @@ export const useGetTasksByTheme = (materialId: string) => {
   });
 };
 
-export const usePostFeedbackByTheme= () => {
+export const usePostFeedbackByTheme = () => {
   return useMutation({
     mutationFn: postFeedbackByTheme,
   });
 };
-

@@ -71,7 +71,6 @@ function StatisticsStudent() {
                 }))}
                 placeholder="Выбрать тему"
                 onChange={(selectedOption) => {
-                  console.log(selectedOption);
                   setBlockId(
                     statisticsByUser.data.topic_blocks.find((block) => {
                       if (!Array.isArray(selectedOption) && selectedOption) {

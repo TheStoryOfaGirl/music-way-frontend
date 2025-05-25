@@ -19,4 +19,4 @@ export type StatisticByHomeworks = {
   success_rate: number;
 };
 
-export type StatisticByHomeworkTask = StatisticByTopicBlock
+export type StatisticByHomeworkTask = StatisticByTopicBlock;

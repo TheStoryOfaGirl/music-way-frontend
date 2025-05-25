@@ -1,16 +1,9 @@
-import { UserRole } from "@models";
 import { useAuthStore } from "@stores";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import {
-  authApi,
-  logout,
-  refreshAuthToken,
-} from "./../../api/services/authService.ts";
-import { replace, useNavigate } from "react-router-dom";
+import { authApi } from "./../../api/services/authService.ts";
+import { useNavigate } from "react-router-dom";
 import { URLS } from "@utils";
-import { AxiosError, AxiosResponse, isAxiosError } from "axios";
-import { useEffect } from "react";
-import { api } from "./../../api/api.ts";
+import { isAxiosError } from "axios";
 import { startRefresh } from "./../../api/queue.ts";
 
 export const useLogin = () => {
@@ -71,72 +64,16 @@ export const useLogout = () => {
   });
 };
 
-// export const useLogout = () => {
-//   const { logout: logoutStore } = useAuthStore();
-//   const queryClient = useQueryClient();
-//   return useMutation({
-//     mutationFn: authApi.logout,
-//     onSuccess: () => {
-//       logoutStore();
-//       queryClient.clear();
-//     },
-//     onError: async (error) => {
-//       if (isAxiosError(error) && error.response?.status === 401) {
-//         try {
-//           // Начинаем обновление токена
-//           await startRefresh()?.then(() => {
-//             authApi.logout();
-//             logoutStore();
-//           });
-//           // Повторяем проверку с новым токеном
-//         } catch (e) {
-//           localStorage.clear();
-//           if (window.location.pathname !== "/") window.location.href = "/";
-//           throw e;
-//         }
-//       }
-//       throw error;
-//     },
-//   });
-// };
-
-// export const useCheckAuth = () => {
-//   return useQuery({
-//     queryKey: ["auth"],
-//     queryFn: authApi.checkAuth,
-//     retry: false
-//   });
-
-// export const useCheckAuth = () => {
-//   return useQuery({
-//     queryKey: ["auth"],
-//     queryFn: () => authApi.checkAuth().catch((e) => {
-//       if (e.response?.status === 401 && window.location.pathname !== '/') {
-//         localStorage.clear();
-//         window.location.href = "/";
-//       }
-//       throw e;
-//     }),
-//     retry: false,
-//     refetchOnWindowFocus: false,
-//   });
-// };
-
-// features/auth/lib/useAuth.ts
 export const useCheckAuth = (path: string) => {
-  console.log("зашел");
   return useQuery({
     queryKey: ["auth-check", path],
     queryFn: async () => {
       try {
-        // Пытаемся проверить авторизацию
         return await authApi.checkAuth();
       } catch (error) {
         if (isAxiosError(error) && error.response?.status === 401) {
           try {
-            // Начинаем обновление токена
             await startRefresh();
-            // Повторяем проверку с новым токеном
             return authApi.checkAuth();
           } catch (e) {
             localStorage.clear();
@@ -149,6 +86,5 @@ export const useCheckAuth = (path: string) => {
     },
     staleTime: 0,
     retry: false,
-    // staleTime: 5 * 60 * 1000,
   });
 };

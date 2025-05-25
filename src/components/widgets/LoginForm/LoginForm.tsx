@@ -15,18 +15,20 @@ export const LoginForm = () => {
   const methods = useForm<LoginData>();
   const { role, isChangedPassword } = useAuthStore();
   const { mutate, isPending, data } = useLogin();
-  console.log(isChangedPassword);
 
   const onSubmit = (data: LoginData) => {
     mutate(data);
   };
 
   useEffect(() => {
-    console.log("use effect", isChangedPassword, role, data?.status === 200);
-    if (data?.status === 200 && !isChangedPassword && role === "Преподаватель") {
+    if (
+      data?.status === 200 &&
+      !isChangedPassword &&
+      role === "Преподаватель"
+    ) {
       setShowModal(true);
     }
-  }, [data]);
+  }, [data, isChangedPassword, role]);
   return (
     <>
       <div className={styles.content}>

@@ -79,19 +79,18 @@
 .add_info {
   display: flex;
   flex-direction: column;
-  gap:4px;
+  gap: 4px;
 }
 
 .tasks_list {
   display: flex;
   flex-direction: column;
-  gap:8px;
+  gap: 8px;
 }
 
-.theme{
+.theme {
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 8px;
 }
-

@@ -4,10 +4,7 @@ import ChevronLeftIcon from "@assets/icons/chevron-left.svg?react";
 import { useCheckAuth, useGetCompletedHomework } from "@api";
 import { useLocation, useParams, useNavigate } from "react-router-dom";
 import { formatScoreCompletedHomework, URLS } from "@utils";
-import {
-  AccordionCompletedHomework,
-  CompletedHomeworkRow,
-} from "@components/dummies";
+import { AccordionCompletedHomework } from "@components/dummies";
 
 const CompletedHomeworkStudent = () => {
   const location = useLocation();

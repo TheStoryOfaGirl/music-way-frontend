@@ -5,4 +5,4 @@ export * from "./material.ts";
 export * from "./statistic.ts";
 export * from "./trainingSimulator.ts";
 export * from "./classStudent.ts";
-export * from "./task.ts"
+export * from "./task.ts";

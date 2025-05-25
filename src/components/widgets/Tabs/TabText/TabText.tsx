@@ -14,17 +14,31 @@ export const TabText = ({ setActiveTab }: TabTextProps) => {
   const location = useLocation();
   const { id } = useParams();
   const { isSuccess: isSuccessAuth } = useCheckAuth(location.pathname);
-  const { data: text, isSuccess: isSuccessText } =
-    useGetTextByTheme(id as string);
+  const { data: text, isSuccess: isSuccessText } = useGetTextByTheme(
+    id as string,
+  );
   return (
     <>
       {isSuccessAuth && isSuccessText && (
         <>
-        <div className={styles.text}>{parse(text.data.text)}</div>
-        <div className={styles.btn_container}>
-          <Button color="purple" variant="secondary" className={styles.btn} onClick={() => setActiveTab("video")}>К видео</Button>
-          <Button color="purple" className={styles.btn} onClick={() => setActiveTab("tasks")}>К заданиям</Button>
-        </div>
+          <div className={styles.text}>{parse(text.data.text)}</div>
+          <div className={styles.btn_container}>
+            <Button
+              color="purple"
+              variant="secondary"
+              className={styles.btn}
+              onClick={() => setActiveTab("video")}
+            >
+              К видео
+            </Button>
+            <Button
+              color="purple"
+              className={styles.btn}
+              onClick={() => setActiveTab("tasks")}
+            >
+              К заданиям
+            </Button>
+          </div>
         </>
       )}
     </>

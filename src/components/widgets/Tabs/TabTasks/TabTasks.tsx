@@ -8,8 +8,9 @@ export const TabTasks = () => {
   const location = useLocation();
   const { id } = useParams();
   const { isSuccess: isSuccessAuth } = useCheckAuth(location.pathname);
-  const { data: tasks, isSuccess: isSuccessTasks } =
-    useGetTasksByTheme(id as string);
+  const { data: tasks, isSuccess: isSuccessTasks } = useGetTasksByTheme(
+    id as string,
+  );
   return (
     <>
       {isSuccessAuth && isSuccessTasks && (

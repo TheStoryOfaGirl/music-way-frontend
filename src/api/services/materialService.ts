@@ -1,7 +1,6 @@
 import {
   FeedbackData,
   MaterialBlock,
-  StatisticByTopicBlock,
   TasksTheme,
   TextTheme,
   Theme,
@@ -77,12 +76,11 @@ export const getTasksByTheme = async (
   );
 };
 
-export const postFeedbackByTheme = async (data: FeedbackData & {material_id: string}
+export const postFeedbackByTheme = async (
+  data: FeedbackData & { material_id: string },
 ) => {
   if (!localStorage.getItem("accessToken")) {
     await startRefresh();
   }
-  return enqueueRequest(() =>
-    api.post(`/feedbacks`, data),
-  );
+  return enqueueRequest(() => api.post(`/feedbacks`, data));
 };

@@ -1,7 +1,7 @@
 import MicIcon from "@assets/icons/MicFill.svg?react";
 import styles from "./SingingCard.module.css";
 import { useReactMediaRecorder } from "react-media-recorder";
-import { Dispatch, SetStateAction, useEffect, useState } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 import { classnames } from "@utils";
 import { Button } from "@components/shared";
 import { useTasksStore } from "@stores";
@@ -25,7 +25,7 @@ export const SingingCard = ({
   taskId,
   saved,
 }: SingingCardProps) => {
-  const {id} = useParams();
+  const { id } = useParams();
   const [condition, setCondition] = useState<ConditionSingingNote>("default");
   const [base64Audio, setbase64Audio] = useState<string>("");
   const { startRecording, stopRecording, mediaBlobUrl } = useReactMediaRecorder(
@@ -112,7 +112,8 @@ export const SingingCard = ({
       )}
       {condition === "recorded" && (
         <p className="text_24_r">
-          Послушай аудиозапись. Если не<br/> сомневаешься в ответе, нажми сохранить
+          Послушай аудиозапись. Если не
+          <br /> сомневаешься в ответе, нажми сохранить
         </p>
       )}
       <div className={styles.audio}>

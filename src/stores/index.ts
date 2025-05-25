@@ -1,2 +1,2 @@
-export * from './authStore.ts'
-export * from './tasksStore.ts'
+export * from "./authStore.ts";
+export * from "./tasksStore.ts";

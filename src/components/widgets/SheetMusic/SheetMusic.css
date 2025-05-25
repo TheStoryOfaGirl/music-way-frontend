@@ -1,0 +1,8 @@
+#sheet-music {
+  display: flex;
+  justify-content: center; /* Горизонтальное центрирование */
+  align-items: center; /* Вертикальное центрирование (если нужно) */
+  width: 100%;
+  margin: 0 auto; /* Автоматические отступы по бокам */
+  overflow: hidden; /* Обрезать лишнее, если нотный стан слишком широк */
+}

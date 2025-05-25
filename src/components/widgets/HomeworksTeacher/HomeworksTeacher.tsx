@@ -1,7 +1,7 @@
-import { HomeworkShort, HomeworkShortTeacher } from "@models";
+import { HomeworkShortTeacher } from "@models";
 import styles from "./HomeworksTeacher.module.css";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
-import { useCheckAuth, useGetCompletedHomeworksTeacher } from "@api";
+import { useNavigate } from "react-router-dom";
+import { useGetCompletedHomeworksTeacher } from "@api";
 import { useState } from "react";
 import {
   ActiveHomeworkRow,
@@ -34,7 +34,15 @@ export const HomeworksTeacher = ({
           <h2 className="heading_2">Домашние задания</h2>
           <NoteIcon />
         </div>
-        <Button color="purple" className={styles.btn} onClick={() => navigate(`${URLS.TEACHER.CLASSES}/${activeClassId}/homeworks/create`)}>
+        <Button
+          color="purple"
+          className={styles.btn}
+          onClick={() =>
+            navigate(
+              `${URLS.TEACHER.CLASSES}/${activeClassId}/homeworks/create`,
+            )
+          }
+        >
           Назначить задание
         </Button>
       </div>
@@ -58,7 +66,11 @@ export const HomeworksTeacher = ({
               key={homework.id}
               {...homework}
               variant="Преподаватель"
-              onClick={() => navigate(`${URLS.TEACHER.CLASSES}/${activeClassId}/homeworks/${homework.id}/active`)}
+              onClick={() =>
+                navigate(
+                  `${URLS.TEACHER.CLASSES}/${activeClassId}/homeworks/${homework.id}/active`,
+                )
+              }
             />
           ))}
         {activeTab === "Активные" && activeHomeworks.length === 0 && (
@@ -72,7 +84,11 @@ export const HomeworksTeacher = ({
               key={homework.id}
               {...homework}
               variant="Преподаватель"
-              onClick={() => navigate(`${URLS.TEACHER.CLASSES}/${activeClassId}/homeworks/${homework.id}/completed`)}
+              onClick={() =>
+                navigate(
+                  `${URLS.TEACHER.CLASSES}/${activeClassId}/homeworks/${homework.id}/completed`,
+                )
+              }
             />
           ))}
         {activeTab === "Завершенные" &&

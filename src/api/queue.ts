@@ -1,10 +1,9 @@
 import { AxiosResponse } from "axios";
 import { refreshAuthToken } from "./services/authService";
 
-// auth-queue.ts
 let isRefreshing = false;
 let refreshPromise: Promise<void> | null = null;
-const requestQueue: Array<() => Promise<any>> = [];
+const requestQueue: Array<() => Promise<unknown>> = [];
 
 export const enqueueRequest = <T>(
   request: () => Promise<AxiosResponse<T>>,
@@ -22,7 +21,6 @@ export const startRefresh = () => {
     isRefreshing = true;
     refreshPromise = refreshAuthToken()
       .then((response) => {
-        // Сохраняем новые токены
         localStorage.setItem("accessToken", response.access_token);
         localStorage.setItem("refreshToken", response.refresh_token);
         localStorage.setItem("name", response.name);
@@ -37,7 +35,6 @@ export const startRefresh = () => {
       .finally(() => {
         isRefreshing = false;
         refreshPromise = null;
-        // Выполняем все ожидающие запросы
         while (requestQueue.length) {
           const req = requestQueue.shift();
           req?.();

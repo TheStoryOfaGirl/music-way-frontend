@@ -5,7 +5,7 @@ export type ClassStudentShort = {
   class_number: number;
   week_day: string;
   class_time: string;
-}
+};
 
 export type ClassStudent = {
   id: string;
@@ -14,12 +14,11 @@ export type ClassStudent = {
   class_time: string;
   students: StudentTable[];
   active_homeworks: HomeworkShortTeacher[];
-}
+};
 
 export type StudentTable = {
   id: string;
   name: string;
   surname: string;
-  patronymic: string
-}
-
+  patronymic: string;
+};

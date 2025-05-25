@@ -1,8 +1,5 @@
 import { ResultStudentByHomework, TableColumn } from "@models";
-import styles from "./TableResultsByHomework.module.css";
-import { title } from "process";
 import { Table } from "@components/shared";
-import { translateTask } from "@utils";
 
 interface TableResultsByHomeworkProps {
   results: ResultStudentByHomework[];
@@ -36,7 +33,10 @@ export const TableResultsByHomework = ({
   const tableData = results.map((result) => {
     const taskMarks = result.tasks.reduce(
       (acc, task) => {
-        acc[task.name] = task.student_mark !== null ? `${task.student_mark}/${task.max_mark}` : '-';
+        acc[task.name] =
+          task.student_mark !== null
+            ? `${task.student_mark}/${task.max_mark}`
+            : "-";
         return acc;
       },
       {} as Record<string, string>,
@@ -44,7 +44,10 @@ export const TableResultsByHomework = ({
     return {
       student: `${result.surname} ${result.name}`,
       ...taskMarks,
-      total_mark: result.student_mark !== null ? `${result.student_mark}/${max_mark}` : '-',
+      total_mark:
+        result.student_mark !== null
+          ? `${result.student_mark}/${max_mark}`
+          : "-",
     };
   });
   return (

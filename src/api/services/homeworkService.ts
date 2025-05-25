@@ -10,7 +10,6 @@ import {
 } from "@models";
 import { api } from "./../../api/api.ts";
 import { enqueueRequest, startRefresh } from "./../../api/queue.ts";
-import { URLS } from "@utils";
 import { AxiosResponse } from "axios";
 
 export const getHomeworks = async (
@@ -91,24 +90,23 @@ export const getVariantsTaskByBlock = async (
 
 export const createHomeworkTeacher = async (
   data: CreateHomework,
-): Promise<AxiosResponse<{id: string}>> => {
+): Promise<AxiosResponse<{ id: string }>> => {
   if (!localStorage.getItem("accessToken")) {
     await startRefresh();
   }
-  return enqueueRequest<{id: string}>(() =>
-    api.post<{id: string}>(`/homeworks`, data),
+  return enqueueRequest<{ id: string }>(() =>
+    api.post<{ id: string }>(`/homeworks`, data),
   );
 };
 
-
 export const submitHomeworkStudent = async (
   homework_id: string,
-  data: CheckHomework[] | undefined
-  ): Promise<AxiosResponse> => {
+  data: CheckHomework[] | undefined,
+): Promise<AxiosResponse> => {
   if (!localStorage.getItem("accessToken")) {
     await startRefresh();
   }
-  return enqueueRequest<{id: string}>(() =>
+  return enqueueRequest<{ id: string }>(() =>
     api.post(`/homeworks/${homework_id}/submit`, data),
   );
 };
