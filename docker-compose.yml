@@ -1,5 +1,5 @@
 services:
-  autorega:
+  music-way:
     build: .
     restart: on-failure
     ports:
