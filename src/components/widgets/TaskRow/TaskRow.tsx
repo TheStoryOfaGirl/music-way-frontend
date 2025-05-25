@@ -51,7 +51,7 @@ export const TaskRow = ({ variant_id, name }: TaskRowProps) => {
         })),
       });
     }
-  }, [isSuccessVariant, variant?.data, tasks]);
+  }, [isSuccessVariant, variant?.data]);
   return (
     <>
       <>
