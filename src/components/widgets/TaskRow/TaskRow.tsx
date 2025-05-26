@@ -83,7 +83,6 @@ export const TaskRow = ({ variant_id, name }: TaskRowProps) => {
                         onChange={tasks["Пропевание"].settings.updateCountTasks}
                         name="countTasks"
                         placeholder="Число"
-                        //rules={{ required: "Обязательно для заполнения" }}
                       />
                     </div>
                   )}
