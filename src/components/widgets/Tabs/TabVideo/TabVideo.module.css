@@ -1,3 +1,4 @@
 .tab video {
   border-radius: 8px;
+  border: 1px solid var(--gray-dark-700)
 }
