@@ -28,13 +28,12 @@ function HomeworkStudent() {
     if (isSuccessTask) {
       switch (task.data.task_type_variant) {
         case "Пропевание":
-          return <TaskSinging {...task.data} isHomework/>;
+          return <TaskSinging {...task.data} />;
         case "Мелодия на клавиатуре":
           return (
             <TaskMelodyOnPiano
               {...task.data}
               content={task.data.content as ContentTaskMelodyOnPiano}
-              isHomework
             />
           );
       }

@@ -47,13 +47,12 @@ function TrainingSimulator() {
   const getActiveTask = () => {
     switch (currentTask.task_type_variant) {
       case "Пропевание":
-        return <TaskSinging {...currentTask} isHomework={false}/>;
+        return <TaskSinging {...currentTask} />;
       case "Мелодия на клавиатуре":
         return (
           <TaskMelodyOnPiano
             {...currentTask}
             content={currentTask.content as ContentTaskMelodyOnPiano}
-            isHomework={false}
           />
         );
       case "Определение на слух":

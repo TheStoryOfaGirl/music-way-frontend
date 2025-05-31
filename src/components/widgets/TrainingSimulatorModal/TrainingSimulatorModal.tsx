@@ -87,14 +87,20 @@ export const TrainingSimulatorModal = ({
               )}
           </div>
         )}
-        <Button
-          color="purple"
-          className={styles.btn}
-          disabled={isPending}
-          onClick={handleClick}
-        >
-          {isPending ? "Загрузка..." : "Начать"}
-        </Button>
+        {name === "Определение на слух" ? (
+          <Button
+            color="purple"
+            className={styles.btn}
+            disabled={isPending}
+            onClick={handleClick}
+          >
+            {isPending ? "Загрузка..." : "Начать"}
+          </Button>
+        ) : (
+          <p className="text_24_r">
+            Упражнение находится в разработке, но скоро появится!
+          </p>
+        )}
       </div>
     </Modal>
   );

@@ -20,7 +20,6 @@ interface TaskMelodyOnPianoProps {
   task_type_variant: string;
   description: string;
   content: ContentTaskMelodyOnPiano;
-  isHomework: boolean;
 }
 
 export const TaskMelodyOnPiano = ({
@@ -29,7 +28,6 @@ export const TaskMelodyOnPiano = ({
   task_type_variant,
   description,
   content,
-  isHomework,
 }: TaskMelodyOnPianoProps) => {
   const { id: homeworkId } = useParams();
   const [showModal, setShowModal] = useState(false);
@@ -58,80 +56,74 @@ export const TaskMelodyOnPiano = ({
   const tasks = useTasksStore();
   return (
     <div className={styles.task}>
-      {isHomework ? (
-        <>
-          <div className={styles.task_name}>
-            <p className="heading_3">{task_type_variant}</p>
-            <QuestionCircle
-              onClick={() => setShowModal(true)}
-              className={styles.icon}
-            />
-          </div>
-          <div className={styles.condition}>
-            <p className="text_32_r">
-              {activeNotes.length < 2
-                ? condition
-                : content.intervals[
-                    activeNotes.length !== content.intervals.length + 2
-                      ? activeNotes.length - 2
-                      : content.intervals.length - 1
-                  ]}
-            </p>
-            <Button
-              variant="secondary"
-              className={styles.btn}
-              onClick={() => {
-                setActiveNotes([content.initial_note]);
-                setSaved(false);
-                tasks["Мелодия на клавиатуре"].reset(id, homeworkId as string);
-              }}
-            >
-              Записать заново
-            </Button>
-          </div>
-          <SheetMusic
-            notes={activeNotes}
-            totalCountNotes={content.intervals.length + 2}
-          />
-          <div className={styles.piano}>
-            <PianoCustom
-              setNotes={setActiveNotes}
-              disabled={activeNotes.length === content.intervals.length + 2}
-              playNoteFunction={(fn) => (playNoteRef.current = fn)}
-            />
-          </div>
-          {activeNotes.length === content.intervals.length + 2 && (
-            <div className={styles.btn_container}>
-              <Button
-                className={styles.btn}
-                variant="secondary"
-                color="purple"
-                onClick={playMelody}
-                disabled={isPlaying}
-              >
-                {isPlaying ? "Играется..." : "Прослушать мелодию"}
-              </Button>
-              <Button
-                className={styles.btn}
-                variant="primary"
-                color="purple"
-                onClick={() => {
-                  tasks["Мелодия на клавиатуре"].saveMelody(
-                    activeNotes,
-                    id,
-                    homeworkId as string,
-                  );
-                  setSaved(true);
-                }}
-                disabled={saved}
-              >
-                {saved ? "Сохранено" : "Сохранить"}
-              </Button>
-            </div>
-          )}
-        </>
-      ) : (
-        <p className="text_24_r">Упражнение находится в разработке, но скоро появится!</p>
+      <div className={styles.task_name}>
+        <p className="heading_3">{task_type_variant}</p>
+        <QuestionCircle
+          onClick={() => setShowModal(true)}
+          className={styles.icon}
+        />
+      </div>
+      <div className={styles.condition}>
+        <p className="text_32_r">
+          {activeNotes.length < 2
+            ? condition
+            : content.intervals[
+                activeNotes.length !== content.intervals.length + 2
+                  ? activeNotes.length - 2
+                  : content.intervals.length - 1
+              ]}
+        </p>
+        <Button
+          variant="secondary"
+          className={styles.btn}
+          onClick={() => {
+            setActiveNotes([content.initial_note]);
+            setSaved(false);
+            tasks["Мелодия на клавиатуре"].reset(id, homeworkId as string);
+          }}
+        >
+          Записать заново
+        </Button>
+      </div>
+      <SheetMusic
+        notes={activeNotes}
+        totalCountNotes={content.intervals.length + 2}
+      />
+      <div className={styles.piano}>
+        <PianoCustom
+          setNotes={setActiveNotes}
+          disabled={activeNotes.length === content.intervals.length + 2}
+          playNoteFunction={(fn) => (playNoteRef.current = fn)}
+        />
+      </div>
+      {activeNotes.length === content.intervals.length + 2 && (
+        <div className={styles.btn_container}>
+          <Button
+            className={styles.btn}
+            variant="secondary"
+            color="purple"
+            onClick={playMelody}
+            disabled={isPlaying}
+          >
+            {isPlaying ? "Играется..." : "Прослушать мелодию"}
+          </Button>
+          <Button
+            className={styles.btn}
+            variant="primary"
+            color="purple"
+            onClick={() => {
+              tasks["Мелодия на клавиатуре"].saveMelody(
+                activeNotes,
+                id,
+                homeworkId as string,
+              );
+              setSaved(true);
+            }}
+            disabled={saved}
+          >
+            {saved ? "Сохранено" : "Сохранить"}
+          </Button>
+        </div>
       )}
       <Modal
         isOpen={showModal}

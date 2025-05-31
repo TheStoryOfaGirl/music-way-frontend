@@ -13,7 +13,6 @@ interface TaskSingingProps {
   condition: string;
   task_type_variant: string;
   description: string;
-  isHomework: boolean;
 }
 
 export const TaskSinging = ({
@@ -21,7 +20,6 @@ export const TaskSinging = ({
   condition,
   task_type_variant,
   description,
-  isHomework,
 }: TaskSingingProps) => {
   const [showModal, setShowModal] = useState(false);
   const { id: homework_id } = useParams();
@@ -31,51 +29,45 @@ export const TaskSinging = ({
   const tasks = useTasksStore();
   return (
     <>
-      {isHomework ? (
-        <>
-          <div className={styles.task_name}>
-            <p className="heading_3">{task_type_variant}</p>
-            <QuestionCircle
-              onClick={() => setShowModal(true)}
-              className={styles.icon}
-            />
-          </div>
-          <div className={styles.condition}>
-            <p className="text_32_r">{condition}</p>
-            <Button
-              variant="secondary"
-              className={styles.btn}
-              onClick={() => {
-                tasks["Пропевание"].reset(id, homework_id as string);
-                setActiveNote({ note: "first", saved: false });
-              }}
-            >
-              Записать заново
-            </Button>
-          </div>
-          <div className={styles.piano}>
-            <PianoCustom />
-          </div>
-          <div className={styles.cards}>
-            <SingingCard
-              saved={activeNote.note === "second"}
-              name="first"
-              activeNote={activeNote.note}
-              setActiveNote={setActiveNote}
-              taskId={id}
-            />
-            <SingingCard
-              saved={activeNote.note === "second" && activeNote.saved}
-              name="second"
-              activeNote={activeNote.note}
-              setActiveNote={setActiveNote}
-              taskId={id}
-            />
-          </div>
-        </>
-      ) : (
-        <p className="text_24_r">Упражнение находится в разработке, но скоро появится!</p>
-      )}
+      <div className={styles.task_name}>
+        <p className="heading_3">{task_type_variant}</p>
+        <QuestionCircle
+          onClick={() => setShowModal(true)}
+          className={styles.icon}
+        />
+      </div>
+      <div className={styles.condition}>
+        <p className="text_32_r">{condition}</p>
+        <Button
+          variant="secondary"
+          className={styles.btn}
+          onClick={() => {
+            tasks["Пропевание"].reset(id, homework_id as string);
+            setActiveNote({ note: "first", saved: false });
+          }}
+        >
+          Записать заново
+        </Button>
+      </div>
+      <div className={styles.piano}>
+        <PianoCustom />
+      </div>
+      <div className={styles.cards}>
+        <SingingCard
+          saved={activeNote.note === "second"}
+          name="first"
+          activeNote={activeNote.note}
+          setActiveNote={setActiveNote}
+          taskId={id}
+        />
+        <SingingCard
+          saved={activeNote.note === "second" && activeNote.saved}
+          name="second"
+          activeNote={activeNote.note}
+          setActiveNote={setActiveNote}
+          taskId={id}
+        />
+      </div>
       <Modal
         isOpen={showModal}
         onClose={() => setShowModal(false)}
