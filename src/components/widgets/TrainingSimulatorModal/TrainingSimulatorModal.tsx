@@ -5,7 +5,7 @@ import { Dispatch, SetStateAction, useState } from "react";
 import { Select, Button, Modal } from "@components/shared";
 import CloseIcon from "@assets/icons/X.svg?react";
 import { useNavigate } from "react-router-dom";
-import { URLS } from "@utils";
+import { classnames, URLS } from "@utils";
 
 interface TrainingSimulatorModalProps {
   id: string;
@@ -97,7 +97,7 @@ export const TrainingSimulatorModal = ({
             {isPending ? "Загрузка..." : "Начать"}
           </Button>
         ) : (
-          <p className="text_24_r">
+          <p className={classnames(styles.warn, "text_24_r")}>
             Упражнение находится в разработке, но скоро появится!
           </p>
         )}

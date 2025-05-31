@@ -28,3 +28,7 @@
   flex-direction: column;
   gap: 16px;
 }
+
+.warn {
+  color: var(--blue-base-500);
+}
