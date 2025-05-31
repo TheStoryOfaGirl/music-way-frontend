@@ -58,15 +58,15 @@ export const TaskMelodyOnPiano = ({
   const tasks = useTasksStore();
   return (
     <div className={styles.task}>
-      <div className={styles.task_name}>
-        <p className="heading_3">{task_type_variant}</p>
-        <QuestionCircle
-          onClick={() => setShowModal(true)}
-          className={styles.icon}
-        />
-      </div>
       {isHomework ? (
         <>
+          <div className={styles.task_name}>
+            <p className="heading_3">{task_type_variant}</p>
+            <QuestionCircle
+              onClick={() => setShowModal(true)}
+              className={styles.icon}
+            />
+          </div>
           <div className={styles.condition}>
             <p className="text_32_r">
               {activeNotes.length < 2
@@ -131,7 +131,7 @@ export const TaskMelodyOnPiano = ({
           )}
         </>
       ) : (
-        <p>Упражнение находится в разработке, но скоро появится!</p>
+        <p className="text_24_r">Упражнение находится в разработке, но скоро появится!</p>
       )}
       <Modal
         isOpen={showModal}
